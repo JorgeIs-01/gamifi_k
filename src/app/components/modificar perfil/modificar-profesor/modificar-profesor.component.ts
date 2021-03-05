@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../models/profesor';
 import { ProfesorService } from '../../../service/profesor.service';
 import { Router } from '@angular/router';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,29 +12,34 @@ import Swal from 'sweetalert2';
 })
 export class ModificarProfesorComponent implements OnInit {
 
-  constructor(private ProfesorService: ProfesorService,
+  perfilProfesor: Profesor;
+  nick: Profesor;
+  profesorModel = new Profesor("", "", "", "", "", "");
+
+  constructor(private profesorService: ProfesorService,
     private Router: Router,
     ) { }
 
-    profesorModel = new Profesor("", "", "", "", "", "");
-
-
   ngOnInit(): void {
+    this.perfilProfesor= this.profesorService.getDatos();
   }
 
   onFormSubmit(itemForm: any): void {
 
     this.profesorModel = new Profesor(
-      itemForm.controls.nick.value,
-      itemForm.controls.pwd.value,
-      itemForm.controls.email.value,
-      itemForm.controls.nombre.value,
-      itemForm.controls.apellidos.value,
-      itemForm.controls.centro.value);
+      this.perfilProfesor[0].nick,
+      this.perfilProfesor[0].pwd,
+      this.perfilProfesor[0].email,
+      this.perfilProfesor[0].nombre,
+      this.perfilProfesor[0].apellidos,
+      this.perfilProfesor[0].centro);
 
-    this.ProfesorService.modificarprofesor(this.profesorModel).subscribe(
+      console.log(this.profesorModel);
+
+
+    this.profesorService.modificarprofesor(this.profesorModel).subscribe(
       (datos: Profesor) => {
-        if (datos['result'] === 'OK') {
+        if (datos!= null) {
           Swal.fire({
             position: 'top',
             icon: 'success',
@@ -44,15 +50,16 @@ export class ModificarProfesorComponent implements OnInit {
           this.Router.navigate(['/perfil-profesor']);
 
         }
-        else if (datos['result'] === 'ERROR1'){
+        else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'El usuario introducido ya existe',
           })
         }
-      }
-    )
+
+        this.profesorService.setDatos(datos);
+      })
 
   }
 

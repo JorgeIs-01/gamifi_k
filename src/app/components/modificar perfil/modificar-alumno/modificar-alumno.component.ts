@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class ModificarAlumnoComponent implements OnInit {
 
+  perfilAlumno : Alumno;
+
   constructor(private AlumnoService: AlumnoService,
     private Router: Router,
     ) { }
@@ -19,19 +21,21 @@ export class ModificarAlumnoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.perfilAlumno= this.AlumnoService.getDatos();
+
   }
   onFormSubmit(itemForm: any): void {
 
     this.alumnoModel = new Alumno(
-      itemForm.controls.nick.value,
-      itemForm.controls.pwd.value,
-      itemForm.controls.email.value,
-      itemForm.controls.nombre.value,
-      itemForm.controls.apellidos.value);
+      this.perfilAlumno[0].nick,
+      this.perfilAlumno[0].pwd,
+      this.perfilAlumno[0].email,
+      this.perfilAlumno[0].nombre,
+      this.perfilAlumno[0].apellidos);
 
     this.AlumnoService.modificaralumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
-        if (datos['result'] === 'OK') {
+        if (datos!= null) {
           Swal.fire({
             position: 'top',
             icon: 'success',
@@ -42,13 +46,15 @@ export class ModificarAlumnoComponent implements OnInit {
           this.Router.navigate(['/perfil-alumno']);
 
         }
-        else if (datos['result'] === 'ERROR1'){
+        else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'El usuario introducido ya existe',
           })
         }
+        this.AlumnoService.setDatos(datos);
+
       }
     )
 

@@ -19,7 +19,7 @@ while ($fila = $result->fetch_assoc()) {
     $numero=$fila["cuantos"];
 }
   if($numero==0){
-    echo('{ "result": "ERROR1" }');
+    echo('{ "result": "ERROR", "message": "El usuario no existe"  }');
   } else{
       $instruccion2 = "SELECT * FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
       $result2 = mysqli_query($con, $instruccion2);
@@ -29,14 +29,12 @@ while ($fila = $result->fetch_assoc()) {
         $pwd2=$fila["pwd"];
     }
 
-// $datos = $result2->execute([$jsonAlumno->nick, $jsonAlumno->pwd, $jsonAlumno->email, $jsonAlumno->nombre, $jsonAlumno->apellido]);
-
   if($pwd2 === $jsonAlumno->pwd){
     header('Content-Type: application/json');
     json_encode($datos);
     echo(json_encode($datos));
 
   } else{
-    echo(json_encode($datos));
+    echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
   }
 }

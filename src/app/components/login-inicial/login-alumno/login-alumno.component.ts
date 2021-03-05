@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
-import { Router } from'@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 
 
 @Component({
@@ -14,10 +15,9 @@ export class LoginAlumnoComponent implements OnInit {
 
   constructor(private alumnoService: AlumnoService,
     private Router: Router,
-    )
-      {}
+  ) { }
 
-    alumnoModel = new Alumno("", "");
+  alumnoModel = new Alumno("", "");
 
   ngOnInit() {
   }
@@ -29,37 +29,41 @@ export class LoginAlumnoComponent implements OnInit {
       itemForm.controls.pwd.value);
 
 
-      this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
-      (datos: Alumno) => {
-        if (datos!= null) {
-          Swal.fire({
-            position: 'top',
-            icon: 'success',
-            title: 'Bienvenido Alumno.',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.Router.navigate(['/perfil-alumno']);
+    this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
+      (datos: any) => {
 
-        } else {
+        if (datos["result"] === "ERROR") {
           Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: 'El usuario introducido no existe',
+            title: datos["result"],
+            text: datos["message"]
           })
         }
-        // else if (datos['result'] === 'ERROR2'){
-        //   Swal.fire({
-        //     icon: 'error',
-        //     title: 'Error',
-        //     text: 'Contraseña incorrecta',
-        //   })
-        // }
+        else {
 
-        this.alumnoService.setDatos(datos);
+          if (datos != null) {
+            Swal.fire({
+              position: 'top',
+              icon: 'success',
+              title: 'Bienvenido Alumno.',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.Router.navigate(['/perfil-alumno']);
+
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Intentalo mas tarde!',
+            })
+          }
+          this.alumnoService.setDatos(datos);
+        }
 
       }
 
-    )}
+    )
+  }
 
 }

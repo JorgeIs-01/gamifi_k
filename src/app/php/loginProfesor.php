@@ -19,7 +19,7 @@ while ($fila = $result->fetch_assoc()) {
     $numero=$fila["cuantos"];
 }
 if($numero==0){
-  echo('{ "result": "ERROR1" }');
+  echo('{ "result": "ERROR", "message": "El usuario no existe"  }');
 }
 else{
 $instruccion2 = "SELECT * FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
@@ -36,6 +36,6 @@ if($pwd2 === $jsonProfesor->pwd){
 
 }
 else{
-  echo(json_encode($datos));
+  echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
 }
 }

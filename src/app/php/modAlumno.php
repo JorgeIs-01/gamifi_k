@@ -12,10 +12,26 @@ if(!$jsonAlumno){
   exit("No hay datos");
 }
 
-  $sentencia ="UPDATE `registro_alumno` SET `pwd`='$jsonAlumno->pwd', `email`='$jsonAlumno->email', `nombre`='$jsonAlumno->nombre', `apellidos`='$jsonAlumno->apellidos' WHERE 1 ";
+  $sentencia ="UPDATE `registro_alumno` SET `pwd`='$jsonAlumno->pwd', `email`='$jsonAlumno->email', `nombre`='$jsonAlumno->nombre', `apellidos`='$jsonAlumno->apellidos' WHERE `nick`='$jsonAlumno->nick' ";
 
   if ($res = mysqli_query($con,$sentencia)) {
-    echo('{ "result": "OK" }');
+    $instruccion2 = "SELECT * FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
+    $result2 = mysqli_query($con, $instruccion2);
+
+    while ($fila = $result2->fetch_assoc()) {
+      $datos [] =$fila;
+      $pwd2=$fila["pwd"];
+    }
+    if($pwd2 === $jsonAlumno->pwd){
+      header('Content-Type: application/json');
+      json_encode($datos);
+      echo(json_encode($datos));
+
+    }
+    else{
+      echo(json_encode($datos));
+    }
+
   }
 
 ?>
