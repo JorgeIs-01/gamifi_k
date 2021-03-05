@@ -12,7 +12,7 @@ if(!$jsonAlumno){
   exit("No hay datos");
 }
 
-$instruccion ="SELECT count(*) AS cuantos FROM registro_alumno WHERE pwd = '$jsonAlumno->nick'";
+$instruccion ="SELECT count(*) AS cuantos FROM registro_alumno WHERE nick = '$jsonAlumno->nick'";
 $result = mysqli_query($con, $instruccion);
 
 while ($fila = $result->fetch_assoc()) {
@@ -20,7 +20,17 @@ while ($fila = $result->fetch_assoc()) {
     $pwd=$fila["pwd"];
 }
 if($numero!=0 && $pwd==$jsonAlumno->pwdA){
-  if($jsonAlumno->pwdN==$jsonAlumno->pwdN2)
+
+  if($jsonAlumno->pwdN==$jsonAlumno->pwdN2){
+    $instruccion ="INSERT registro_alumno SET `pwd` VALUE (`$jsonAlumno->pwdN2`);";
+    $result = mysqli_query($con, $instruccion);
+    $datos [] =$result;
+
+    header('Content-Type: application/json');
+    json_encode($datos);
+    echo(json_encode($datos));
+
+  }
 
 }
 else{

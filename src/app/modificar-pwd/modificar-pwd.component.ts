@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/models/alumno';
 import { AlumnoService } from 'src/app/service/alumno.service';
-
 import { Router } from '@angular/router';
+import { Cambiarpwd } from '../models/cambiarpwd';
+import Swal from 'sweetalert2';
 
 
 
@@ -13,8 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ModificarPwdComponent implements OnInit {
 
-  perfilAlumno: Alumno;
-  alumnoModel = new Alumno("", "", "");
+  Cambiarpwd = new Cambiarpwd("", "", "");
 
   constructor(private alumnoService: AlumnoService,
     private Router: Router,
@@ -23,18 +23,36 @@ export class ModificarPwdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.perfilAlumno = this.alumnoService.getDatos();
-    console.log(this.perfilAlumno);
-    console.log(this.perfilAlumno[0].nick);
+    // this.Cambiarpwd = this.alumnoService.getDatos();
   }
 
   onFormSubmit(itemForm: any): void {
-    this.perfilAlumno = new Alumno(
-      this.perfilAlumno[0].pwdA,
-      this.perfilAlumno[0].pwdN,
-      this.perfilAlumno[0].pwdN2,)
+    console.log(this.Cambiarpwd.pwdA);
+
+      this.alumnoService.modificarPwd(this.Cambiarpwd).subscribe(
+        (datos: Cambiarpwd) => {
+          if (datos!= null) {
+            Swal.fire({
+              position: 'top',
+              icon: 'success',
+              title: 'Contraseña modificada.',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.Router.navigate(['/perfil-alumno']);
+
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Intentalo mas tarde!',
+            })
+          }
+
+          this.alumnoService.setDatos(datos);
+        })
 
     }
 
   }
-
