@@ -18,6 +18,7 @@ import { LoginAlumnoComponent } from './components/login-inicial/login-alumno/lo
 import { LoginComponent } from './components/login-inicial/login/login.component';
 import { ModificarAlumnoComponent } from './components/modificar perfil/modificar-alumno/modificar-alumno.component';
 import { ModificarProfesorComponent } from './components/modificar perfil/modificar-profesor/modificar-profesor.component';
+import { ModificarPwdComponent } from './modificar-pwd/modificar-pwd.component';
 
 
 
@@ -38,6 +39,7 @@ import { ModificarProfesorComponent } from './components/modificar perfil/modifi
     LoginProfesorComponent,
     ModificarAlumnoComponent,
     ModificarProfesorComponent,
+    ModificarPwdComponent,
 
 
 

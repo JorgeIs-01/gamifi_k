@@ -1,0 +1,41 @@
+<br>
+<a routerLink="/perfil-alumno" routerLinkActive="active" class="profile-edit-btn">Salir sin guardar</a>
+
+<div class="container emp-profile">
+  <div class="col-md-8">
+    <div class="tab-content profile-tab" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+
+          <br><br>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Contraseña Antigua:</label>
+            </div>
+            <div class="col-md-6">
+              <input type="password" class="fadeIn second" id="pwdA" name="pwd">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Contraseña Nueva:</label>
+            </div>
+            <div class="col-md-6">
+              <input type="password" class="fadeIn second" id="pwdN" name="pwd">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Repita contraseña:</label>
+            </div>
+            <div class="col-md-6">
+              <input type="password" class="fadeIn second" id="pwdN2" name="pwd">
+            </div>
+          </div>
+          <br>
+          <div style=margin-left:58%;>
+            <input type="submit" class="fadeIn fourth" value="Modificar">
+          </div>
+        </form>

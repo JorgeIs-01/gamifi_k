@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 export class ModificarProfesorComponent implements OnInit {
 
   perfilProfesor: Profesor;
-  nick: Profesor;
   profesorModel = new Profesor("", "", "", "", "", "");
 
   constructor(private profesorService: ProfesorService,
@@ -33,8 +32,6 @@ export class ModificarProfesorComponent implements OnInit {
       this.perfilProfesor[0].nombre,
       this.perfilProfesor[0].apellidos,
       this.perfilProfesor[0].centro);
-
-      console.log(this.profesorModel);
 
 
     this.profesorService.modificarprofesor(this.profesorModel).subscribe(

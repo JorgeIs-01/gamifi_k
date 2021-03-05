@@ -3,7 +3,6 @@ import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 
 
 @Component({

@@ -24,6 +24,10 @@ modificaralumno(alumno){
   return this.http.post(`${this.baseUrl}modAlumno.php`, JSON.stringify(alumno));
 }
 
+modificarPwd(alumno){
+  return this.http.post(`${this.baseUrl}modpwd.php`, JSON.stringify(alumno));
+}
+
 setDatos(datos){
   this.datos= datos;
 }
