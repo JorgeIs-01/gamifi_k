@@ -12,12 +12,12 @@ import Swal from 'sweetalert2';
 export class ModificarAlumnoComponent implements OnInit {
 
   perfilAlumno : Alumno;
+  alumnoModel = new Alumno("", "", "", "", "");
 
   constructor(private AlumnoService: AlumnoService,
     private Router: Router,
     ) { }
 
-    alumnoModel = new Alumno("", "", "", "", "");
 
 
   ngOnInit(): void {
@@ -32,6 +32,9 @@ export class ModificarAlumnoComponent implements OnInit {
       this.perfilAlumno[0].email,
       this.perfilAlumno[0].nombre,
       this.perfilAlumno[0].apellidos);
+
+      console.log(this.alumnoModel);
+
 
     this.AlumnoService.modificaralumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {

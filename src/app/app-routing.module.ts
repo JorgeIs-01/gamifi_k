@@ -11,7 +11,7 @@ import { PerfilProfesorComponent } from './components/perfils/perfil-profesor/pe
 import { RegistroAlumnoComponent } from './components/registro/registro-alumno/registro-alumno.component';
 import { RegistroInicialComponent } from './components/registro/registro-inicial/registro-inicial.component';
 import { RegistroProfesorComponent } from './components/registro/registro-profesor/registro-profesor.component';
-import { ModificarPwdComponent } from './modificar-pwd/modificar-pwd.component';
+import { ModificarPwdComponent } from './components/modificar perfil/modificar-pwd/modificar-pwd.component';
 
 
 const routes: Routes = [
