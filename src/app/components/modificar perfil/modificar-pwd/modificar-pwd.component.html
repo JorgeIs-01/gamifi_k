@@ -5,15 +5,19 @@
   <div class="col-md-8">
     <div class="tab-content profile-tab" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
           <br><br>
           <div class="row">
             <div class="col-md-6">
               <label>Contraseña Antigua:</label>
             </div>
-            <div class="col-md-6">
-              <input type="password" class="fadeIn second" id="pwdA" name="pwdA">
+            <div></div>
+            <input type="password" formControlName="pwdA" class="form-control" id="pwdA" name="pwdA" placeholder="Contraseña Antigua"
+              [ngClass]="{ 'is-invalid': submitted && f.pwdA.errors }">
+            <div *ngIf="submitted && f.pwdA.errors" class="invalid-feedback">
+              <div *ngIf="f.pwdA.errors.required">La contraseña es obligatorio. </div>
+              <div *ngIf="f.pwdA.errors.minlength">Mínimo 8 carácteres</div>
             </div>
           </div>
           <br>
@@ -21,17 +25,24 @@
             <div class="col-md-6">
               <label>Contraseña Nueva:</label>
             </div>
-            <div class="col-md-6">
-              <input type="password" class="fadeIn second" id="pwdN" name="pwdN">
+            <input type="password" formControlName="pwdN" class="form-control" id="pwdN" name="pwdN" placeholder="Nueva Contraseña"
+              [ngClass]="{ 'is-invalid': submitted && f.pwdN.errors }">
+            <div *ngIf="submitted && f.pwdN.errors" class="invalid-feedback">
+              <div *ngIf="f.pwdN.errors.required">La contraseña es obligatorio. </div>
+              <div *ngIf="f.pwdN.errors.minlength">Mínimo 8 carácteres</div>
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col-md-6">
-              <label>Repita contraseña:</label>
+              <label>Repetir contraseña:</label>
             </div>
-            <div class="col-md-6">
-              <input type="password" class="fadeIn second" id="pwdN2" name="pwdN2">
+            <input type="password" formControlName="pwdN2" class="form-control" id="pwdN2" name="pwdN2" placeholder="Repetir Contraseña"
+              [ngClass]="{ 'is-invalid': submitted && f.pwdN2.errors }">
+            <div *ngIf="submitted && f.pwdN2.errors" class="invalid-feedback">
+              <div *ngIf="f.pwdN2.errors.required">La contraseña es obligatorio. </div>
+              <div *ngIf="f.pwdN2.errors.minlength">Mínimo 8 carácteres</div>
+              <div *ngIf="f.pwdN2.errors.mustMatch">No coincide</div>
             </div>
           </div>
           <br>

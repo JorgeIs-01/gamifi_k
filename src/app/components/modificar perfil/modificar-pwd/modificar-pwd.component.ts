@@ -3,6 +3,8 @@ import { AlumnoService } from 'src/app/service/alumno.service';
 import { Router } from '@angular/router';
 import { Cambiarpwd } from '../../../models/cambiarpwd';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 
@@ -13,51 +15,80 @@ import Swal from 'sweetalert2';
 })
 export class ModificarPwdComponent implements OnInit {
 
-  parametrosPWD : Cambiarpwd;
-  pwdModel = new Cambiarpwd("", "", "");
-
-
+  registerForm: FormGroup;
+  submitted = false;
   constructor(private alumnoService: AlumnoService,
     private Router: Router,
+    private formBuilder: FormBuilder,
 
-    ) {
+    ) {}
+
+  pwdModel = new Cambiarpwd("", "", "");
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      pwdA: ['', [Validators.required, Validators.minLength(8)]],
+      pwdN: ['', [Validators.required, Validators.minLength(8)]],
+      pwdN2: ['', [Validators.required, Validators.minLength(8)]],
+    }, {
+      validator: MustMatch('pwdN', 'pwdN2')
+  });
   }
 
-  ngOnInit(): void {
-    this.parametrosPWD = this.alumnoService.getDatos();
-  }
+  get f() { return this.registerForm.controls; }
 
-  onFormSubmit(itemForm: any): void {
-    this.pwdModel = new Cambiarpwd(
-      this.parametrosPWD[0].pwdA,
-      this.parametrosPWD[0].pwdN,
-      this.parametrosPWD[0].pwdN2);
-    console.log(this.pwdModel);
+  onSubmit() {
+    this.submitted = true;
 
-      // this.alumnoService.modificarPwd(this.Cambiarpwd).subscribe(
-      //   (datos: Cambiarpwd) => {
-      //     if (datos!= null) {
-      //       Swal.fire({
-      //         position: 'top',
-      //         icon: 'success',
-      //         title: 'Contraseña modificada.',
-      //         showConfirmButton: false,
-      //         timer: 1500
-      //       })
-      //       this.Router.navigate(['/perfil-alumno']);
-
-      //     }
-      //     else {
-      //       Swal.fire({
-      //         icon: 'error',
-      //         title: 'Error',
-      //         text: 'Intentalo mas tarde!',
-      //       })
-      //     }
-
-      //     this.alumnoService.setDatos(datos);
-      //   })
-
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
     }
 
+    // display form values on success
+    this.alumnoService.modificarPwd(this.registerForm.value).subscribe(
+        (datos: Cambiarpwd) => {
+          if (datos!= null) {
+            Swal.fire({
+              position: 'top',
+              icon: 'success',
+              title: 'Contraseña modificada.',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.Router.navigate(['/perfil-alumno']);
+
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Intentalo mas tarde!',
+            })
+          }
+
+          this.alumnoService.setDatos(datos);
+        })
+
+
+    }
+}
+  export function MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+        const control = formGroup.controls[controlName];
+        const matchingControl = formGroup.controls[matchingControlName];
+
+        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+
+            return;
+        }
+
+
+        if (control.value !== matchingControl.value) {
+            matchingControl.setErrors({ mustMatch: true });
+        } else {
+            matchingControl.setErrors(null);
+        }
+    }
   }
+
