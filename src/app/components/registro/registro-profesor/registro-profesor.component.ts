@@ -25,7 +25,7 @@ export class RegistroProfesorComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       nick: ['', Validators.required],
-      pwd: ['', [Validators.required, Validators.minLength(6)]],
+      pwd: ['', [Validators.required, Validators.minLength(8)]],
       confirmpwd: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       nombre: ['', Validators.required],

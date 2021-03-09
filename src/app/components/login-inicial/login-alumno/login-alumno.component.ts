@@ -3,7 +3,7 @@ import { Alumno } from '../../../models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-alumno',
@@ -12,24 +12,36 @@ import Swal from 'sweetalert2';
 })
 export class LoginAlumnoComponent implements OnInit {
 
+  registerForm: FormGroup;
+  submitted = false;
   constructor(private alumnoService: AlumnoService,
     private Router: Router,
+    private formBuilder: FormBuilder,
+
   ) { }
 
   alumnoModel = new Alumno("", "");
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      nick: ['', Validators.required],
+      pwd: ['', [Validators.required, Validators.minLength(8)]],
+    });
   }
 
-  onFormSubmit(itemForm: any): void {
+  get f() { return this.registerForm.controls; }
 
-    this.alumnoModel = new Alumno(
-      itemForm.controls.nick.value,
-      itemForm.controls.pwd.value);
+  onSubmit() {
+    this.submitted = true;
 
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
 
-    this.alumnoService.loginAlumno(this.alumnoModel).subscribe(
-      (datos: any) => {
+    // display form values on success
+    this.alumnoService.loginAlumno(this.registerForm.value).subscribe(
+      (datos: Alumno) => {
 
         if (datos["result"] === "ERROR") {
           Swal.fire({
@@ -63,6 +75,6 @@ export class LoginAlumnoComponent implements OnInit {
       }
 
     )
-  }
+}
 
 }

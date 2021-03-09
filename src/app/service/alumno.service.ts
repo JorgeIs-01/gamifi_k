@@ -1,40 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Alumno } from '../models/alumno';
-import { environment } from "../../environments/environment";
-import { DataSource } from '@angular/cdk/collections';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnoService {
   baseUrl = 'http://localhost/';
-  datos : any;
-constructor(private http: HttpClient) { }
+  datos: any;
 
-addAlumno(alumno){
-  return this.http.post(`${this.baseUrl}altaAlumno.php`, JSON.stringify(alumno));
-}
+  constructor(private http: HttpClient) { }
 
-loginAlumno(alumno){
-  return this.http.post(`${this.baseUrl}loginAlumno.php`, JSON.stringify(alumno));
-}
+  addAlumno(alumno) {
+    return this.http.post(`${this.baseUrl}altaAlumno.php`, JSON.stringify(alumno));
+  }
 
-modificaralumno(alumno){
-  return this.http.post(`${this.baseUrl}modAlumno.php`, JSON.stringify(alumno));
-}
+  loginAlumno(alumno) {
+    return this.http.post(`${this.baseUrl}loginAlumno.php`, JSON.stringify(alumno));
+  }
 
-modificarPwd(alumno){
-  return this.http.post(`${this.baseUrl}modpwd.php`, JSON.stringify(alumno));
-}
+  modificaralumno(alumno) {
+    return this.http.post(`${this.baseUrl}modAlumno.php`, JSON.stringify(alumno));
+  }
 
-setDatos(datos){
-  this.datos= datos;
-}
+  modificarPwd(alumno) {
+    return this.http.post(`${this.baseUrl}modpwd.php`, JSON.stringify(alumno));
+  }
 
-getDatos(){
-  return this.datos;
-}
+  setDatos(datos) {
+    this.datos = datos;
+  }
+
+  getDatos() {
+    return this.datos;
+  }
 
 
 }

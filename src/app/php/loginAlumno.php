@@ -35,6 +35,6 @@ while ($fila = $result->fetch_assoc()) {
     echo(json_encode($datos));
 
   } else{
-    echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
-  }
+      echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
+    }
 }

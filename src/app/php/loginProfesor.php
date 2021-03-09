@@ -18,24 +18,23 @@ $result = mysqli_query($con, $instruccion);
 while ($fila = $result->fetch_assoc()) {
     $numero=$fila["cuantos"];
 }
-if($numero==0){
-  echo('{ "result": "ERROR", "message": "El usuario no existe"  }');
-}
-else{
-$instruccion2 = "SELECT * FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
-$result2 = mysqli_query($con, $instruccion2);
+  if($numero==0){
+    echo('{ "result": "ERROR", "message": "El usuario no existe"  }');
+  } else{
+      $instruccion2 = "SELECT * FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
+      $result2 = mysqli_query($con, $instruccion2);
 
-while ($fila = $result2->fetch_assoc()) {
-  $datos [] =$fila;
-  $pwd2=$fila["pwd"];
-}
-if($pwd2 === $jsonProfesor->pwd){
-  header('Content-Type: application/json');
-  json_encode($datos);
-  echo(json_encode($datos));
+      while ($fila = $result2->fetch_assoc()) {
+        $datos [] =$fila;
+        $pwd2=$fila["pwd"];
+    }
 
-}
-else{
-  echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
-}
+  if($pwd2 === $jsonProfesor->pwd){
+    header('Content-Type: application/json');
+    json_encode($datos);
+    echo(json_encode($datos));
+
+  } else{
+      echo('{ "result": "ERROR", "message": "La contraseña no es correcta"  }');
+    }
 }

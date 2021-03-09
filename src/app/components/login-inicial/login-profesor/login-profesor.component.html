@@ -2,15 +2,32 @@
   <div id="formContent">
     <!-- Tabs Titles -->
     <h2 class="active"> INICIAR SESIÓN</h2>
-    <a routerLink="/registro-inicial" routerLinkActive="active"><h2 class="inactive underlineHover">REGISTRO</h2></a>
+    <a routerLink="/registro-inicial" routerLinkActive="active">
+      <h2 class="inactive underlineHover">REGISTRO</h2>
+    </a>
     <br><br>
     <h3>Hola Profesor!</h3>
 
-
     <!-- Login Form -->
-    <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
-      <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" autocomplete="off" ngModel required>
-      <input type="password"  class="fadeIn second" id="pwd" name="pwd" placeholder="Contraseña" autocomplete="off" ngModel required>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <input type="text" formControlName="nick" placeholder="Apodo" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.nick.errors }">
+        <div *ngIf="submitted && f.nick.errors" class="invalid-feedback">
+          <div *ngIf="f.nick.errors.required">El apodo es obligatorio</div>
+        </div>
+      </div>
+
+      <div>
+        <input type="password" formControlName="pwd" class="form-control" id="pwd" name="pwd" placeholder="Contraseña"
+          [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }">
+        <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+          <div *ngIf="f.pwd.errors.required">La contraseña es obligatorio. </div>
+          <div *ngIf="f.pwd.errors.minlength">Mínimo 8 carácteres</div>
+        </div>
+      </div>
+
       <input type="submit" class="fadeIn fourth" value="Entrar">
     </form>
   </div>

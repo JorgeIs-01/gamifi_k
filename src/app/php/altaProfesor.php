@@ -12,9 +12,6 @@ if(!$jsonProfesor){
   exit("No hay datos");
 }
 
-// $sql="SELECT nick FROM `registro_profesor` WHERE  nick='$jsonProfesor->nick'";
-// $result = mysqli_query($con,$sql);
-
 $instruccion ="SELECT count(*) AS cuantos FROM registro_profesor WHERE nick = '$jsonProfesor->nick'";
 $result = mysqli_query($con, $instruccion);
 
@@ -24,8 +21,6 @@ while ($fila = $result->fetch_assoc()) {
 if($numero!=0){
   echo('{ "result": "ERROR1" }');
 }
-
-
 else{
   $sentencia ="INSERT INTO `registro_profesor`(`nick`, `pwd`, `email`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
                                                                                                                 '$jsonProfesor->pwd',
