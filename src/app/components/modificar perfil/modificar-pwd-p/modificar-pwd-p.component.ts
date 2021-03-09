@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { AlumnoService } from 'src/app/service/alumno.service';
 import { Router } from '@angular/router';
 import { Cambiarpwd } from '../../../models/cambiarpwd';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProfesorService } from 'src/app/service/profesor.service';
 
 @Component({
-  selector: 'app-modificar-pwd',
-  templateUrl: './modificar-pwd.component.html',
-  styleUrls: ['./modificar-pwd.component.css'],
+  selector: 'app-modificar-pwd-p',
+  templateUrl: './modificar-pwd-p.component.html',
+  styleUrls: ['./modificar-pwd-p.component.css'],
 })
-export class ModificarPwdComponent implements OnInit {
+export class ModificarPwdPComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   constructor(
-    private alumnoService: AlumnoService,
+    private profesorService: ProfesorService,
     private Router: Router,
     private formBuilder: FormBuilder
   ) {}
 
   pwdModel = new Cambiarpwd('', '', '');
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.registerForm = this.formBuilder.group(
       {
         pwdA: ['', [Validators.required, Validators.minLength(8)]],
@@ -48,7 +48,7 @@ export class ModificarPwdComponent implements OnInit {
 
     // display form values on success
 
-    this.alumnoService
+    this.profesorService
       .modificarPwd(this.registerForm.value)
       .subscribe((datos: Cambiarpwd) => {
         if (datos['result'] === 'ERROR') {
@@ -66,7 +66,7 @@ export class ModificarPwdComponent implements OnInit {
               showConfirmButton: false,
               timer: 1500,
             });
-            this.Router.navigate(['/perfil-alumno']);
+            this.Router.navigate(['/perfil-profesor']);
           } else {
             Swal.fire({
               icon: 'error',
@@ -74,8 +74,7 @@ export class ModificarPwdComponent implements OnInit {
               text: 'Intentalo mas tarde!',
             });
           }
-
-          this.alumnoService.setDatos(datos);
+          this.profesorService.setDatos(datos);
         }
       });
   }

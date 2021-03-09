@@ -12,6 +12,7 @@ import { RegistroAlumnoComponent } from './components/registro/registro-alumno/r
 import { RegistroInicialComponent } from './components/registro/registro-inicial/registro-inicial.component';
 import { RegistroProfesorComponent } from './components/registro/registro-profesor/registro-profesor.component';
 import { ModificarPwdComponent } from './components/modificar perfil/modificar-pwd/modificar-pwd.component';
+import { ModificarPwdPComponent } from './components/modificar perfil/modificar-pwd-p/modificar-pwd-p.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'modificar-alumno', component: ModificarAlumnoComponent },
   { path: 'modificar-profesor', component: ModificarProfesorComponent },
   { path: 'modificar-pwd', component: ModificarPwdComponent },
+  { path: 'modificar-pwd-p', component: ModificarPwdPComponent },
   { path: '**', component: AppComponent }
 ];
 

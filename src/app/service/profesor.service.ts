@@ -1,26 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfesorService {
   baseUrl = 'http://localhost/';
   datos: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addprofesor(profesor) {
-    return this.http.post(`${this.baseUrl}altaProfesor.php`, JSON.stringify(profesor));
+    return this.http.post(
+      `${this.baseUrl}altaProfesor.php`,
+      JSON.stringify(profesor)
+    );
   }
 
   loginProfesor(profesor) {
-    return this.http.post(`${this.baseUrl}loginProfesor.php`, JSON.stringify(profesor));
+    return this.http.post(
+      `${this.baseUrl}loginProfesor.php`,
+      JSON.stringify(profesor)
+    );
   }
 
   modificarprofesor(profesor) {
-    return this.http.post(`${this.baseUrl}modProfesor.php`, JSON.stringify(profesor));
+    return this.http.post(
+      `${this.baseUrl}modProfesor.php`,
+      JSON.stringify(profesor)
+    );
+  }
+
+  modificarPwd(profesor) {
+    return this.http.post(
+      `${this.baseUrl}modpwdp.php`,
+      JSON.stringify(profesor)
+    );
   }
 
   setDatos(datos) {
@@ -30,16 +45,4 @@ export class ProfesorService {
   getDatos() {
     return this.datos;
   }
-
-
 }
-
-
-
-
-
-
-
-
-
-
