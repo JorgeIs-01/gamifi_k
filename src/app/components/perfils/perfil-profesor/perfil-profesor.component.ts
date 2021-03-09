@@ -14,9 +14,6 @@ export class PerfilProfesorComponent implements OnInit {
 
   ngOnInit(): void {
     this.perfilProfesor= this.profesorService.getDatos();
-    console.log( this.perfilProfesor);
-    console.log( this.perfilProfesor[0].nick);
-
   }
 
 }
