@@ -46,8 +46,16 @@ export class ModificarPwdComponent implements OnInit {
     }
 
     // display form values on success
+
     this.alumnoService.modificarPwd(this.registerForm.value).subscribe(
         (datos: Cambiarpwd) => {
+          if (datos["result"] === "ERROR") {
+            Swal.fire({
+              icon: 'error',
+              title: datos["result"],
+              text: datos["message"]
+            })
+          } else{
           if (datos!= null) {
             Swal.fire({
               position: 'top',
@@ -68,7 +76,7 @@ export class ModificarPwdComponent implements OnInit {
           }
 
           this.alumnoService.setDatos(datos);
-        })
+        }})
 
 
     }
