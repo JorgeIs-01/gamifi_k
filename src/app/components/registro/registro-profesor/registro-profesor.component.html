@@ -8,13 +8,69 @@
     <h2 class="active"> REGISTRO PROFESOR/A</h2>
 
     <!-- Login Form -->
-    <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
-      <input type="text"  class="fadeIn second" id= "nick" name="nick" placeholder="Apodo" autocomplete="off" ngModel required>
-      <input type="password"  class="fadeIn second" id="pwd" name="pwd" placeholder="Contraseña" autocomplete="off" ngModel required>
-      <input type="text"  class="fadeIn second" id= "email" name="email" placeholder="email" autocomplete="off" ngModel required>
-      <input type="text"  class="fadeIn second" id= "nombre" name="nombre" placeholder="nombre" autocomplete="off" ngModel required>
-      <input type="text"  class="fadeIn second" id= "apellidos" name="apellidos" placeholder="apellidos" autocomplete="off" ngModel required>
-      <input type="text"  class="fadeIn second" id= "centro" name="centro" placeholder="centro" autocomplete="off" ngModel required>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <input type="text" formControlName="nick" placeholder="Apodo" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.nick.errors }">
+          <div *ngIf="submitted && f.nick.errors" class="invalid-feedback">
+          <div *ngIf="f.nick.errors.required">El apodo es obligatorio</div>
+        </div>
+      </div>
+
+      <div>
+          <input type="password" formControlName="pwd" class="form-control" id="pwd" name="pwd" placeholder="Contraseña" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }">
+          <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+            <div *ngIf="f.pwd.errors.required">La contraseña es obligatorio. </div>
+            <div *ngIf="f.pwd.errors.minlength">Mínimo 8 carácteres</div>
+        </div>
+      </div>
+
+      <div >
+
+        <input type="password" formControlName="confirmpwd" class="form-control" placeholder=" Confirmar Contraseña" [ngClass]="{ 'is-invalid': submitted && f.confirmpwd.errors }" />
+        <div *ngIf="submitted && f.confirmpwd.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmpwd.errors.required">Confirmar contraseña es obligatorio</div>
+            <div *ngIf="f.confirmpwd.errors.mustMatch">No coincide</div>
+        </div>
+    </div>
+
+
+
+          <div>
+            <input type="text" formControlName="email" placeholder="email" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+              <div *ngIf="f.email.errors.email">Introduce un email</div>
+          </div>
+        </div>
+
+
+
+        <div>
+          <input type="text" formControlName="nombre" placeholder="nombre" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+            <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">El nombre es obligatorio</div>
+          </div>
+        </div>
+
+        <div>
+          <input type="text" formControlName="apellidos" placeholder="apellido" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }">
+            <div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+            <div *ngIf="f.apellidos.errors.required">El apellido es obligatorio</div>
+          </div>
+        </div>
+
+        <div>
+          <input type="text" formControlName="centro" placeholder="centro" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.centro.errors }">
+            <div *ngIf="submitted && f.centro.errors" class="invalid-feedback">
+            <div *ngIf="f.centro.errors.required">El centro es obligatorio</div>
+          </div>
+        </div>
+
+
+
+
+
       <input type="submit" class="fadeIn fourth" value="Agregar">
       <br><br>
     </form>
