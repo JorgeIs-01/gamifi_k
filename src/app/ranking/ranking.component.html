@@ -15,7 +15,7 @@
         <thead>
           <tr>
             <th>Rank</th>
-            <th>Team</th>
+            <th>Alumno</th>
             <th>Points</th>
             <th>+/-</th>
           </tr>
@@ -23,16 +23,18 @@
         <tbody>
 
 
-
+<p><li *ngFor="let datos of perfilAlumno">
+  <b> {{datos.perfilAlumno}} </b>
+</li></p>
           <tr>
               <td class="rank">1</td>
-              <td class="team">Spain</td>
-              <td class="points">1460</td>
+              <td class="team">{{this.perfilAlumno[0].apellidos}}  {{this.perfilAlumno[0].nombre}}</td>
+              <td class="points">{{this.perfilAlumno[0].puntos}}</td>
               <td class="up-down">0</td>
             </tr>
           <tr>
               <td class="rank">2</td>
-              <td class="team">Germany</td>
+              <td class="team">Ramon</td>
               <td class="points">1340</td>
               <td class="up-down">0</td>
             </tr>

@@ -20,7 +20,7 @@ export class RankingComponent implements OnInit {
 
   console.log(this.perfilAlumno);
   console.log(this.perfilAlumno[0].nick);
-  console.log(this.perfilAlumno[1].nick);
+  console.log(this.perfilAlumno[1]);
 
 }
 

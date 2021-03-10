@@ -19,15 +19,18 @@ else{
       $instruccion2 = "SELECT * FROM registro_alumno";
       $result2 = mysqli_query($con, $instruccion2);
 
-      while ($fila = $result2->fetch_assoc()) {
-
-           $datos [] =$fila;
 
 
+$datos = mysqli_fetch_all($result2);
+    //   while ($fila = $result2->fetch_assoc()) {
 
-    }
-echo "Primer registro". $datos[0];
-echo "Segundo registro". $datos[1];
+    //   // $datos = mysqli_fetch_row($result2);
+
+    //       //  $datos [] =$fila;
+
+    // }
+
+
   if($res = mysqli_query($con,$instruccion2)){
     header('Content-Type: application/json');
     json_encode($datos);
