@@ -8,80 +8,85 @@
       <div class="col-md-4">
         <div class="profile-img">
           <img src="https://image.flaticon.com/icons/png/512/194/194935.png" alt="" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="profile-head">
-          <h2>
-            Nick: {{this.perfilProfesor[0].nick}}
-          </h2>
-          <h3>
-            Profesor
-          </h3>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <a routerLink="/login" routerLinkActive="active" class="profile-edit-btn">Cerrar sesión</a>
-        <br><br>
-        <a routerLink="/modificar-profesor" routerLinkActive="active" class="profile-edit-btn">Editar perfil</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="profile-work">
-          <p> TUS RANKINGS</p>
-          <a href="">BONUS_DAW</a><br />
-          <a href="">BONUS2020</a><br />
-          <a href="">DENTAL</a><br />
-          <a href="">SMX1</a><br />
-          <a href="">PROGRAMACION</a><br />
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Nombre</label>
-                </div>
-                <div class="col-md-6">
-                  <p>{{this.perfilProfesor[0].nombre}}</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Apellidos</label>
-                </div>
-                <div class="col-md-6">
-                  <p>{{this.perfilProfesor[0].apellidos}}</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Email</label>
-                </div>
-                <div class="col-md-6">
-                  <p>{{this.perfilProfesor[0].email}}</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Centro</label>
-                </div>
-                <div class="col-md-6">
-                  <p>{{this.perfilProfesor[0].centro}}</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <label>Contraseña</label>
-                </div>
-                <div class="col-md-6">
-                  <p><button type="button" routerLink="/modificar-pwd-p" routerLinkActive="active" class="btn btn-primary">Cambiar Contraseña</button>
-                  </p>
-                </div>
-              </div>
-            </form>
+          <div class="file btn btn-lg btn-primary">
+            Cambiar imagen
+            <input type="file" name="file" />
           </div>
         </div>
+      </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h2>
+              Nick: {{this.perfilProfesor[0].nick}}
+            </h2>
+            <h3>
+              Profesor
+            </h3>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <a routerLink="/login" routerLinkActive="active" class="profile-edit-btn">Cerrar sesión</a>
+          <br><br>
+          <a routerLink="/modificar-profesor" routerLinkActive="active" class="profile-edit-btn">Editar perfil</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+            <p> TUS RANKINGS</p>
+            <a href="">BONUS_DAW</a><br />
+            <a href="">BONUS2020</a><br />
+            <a href="">DENTAL</a><br />
+            <a href="">SMX1</a><br />
+            <a href="">PROGRAMACION</a><br />
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Nombre</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{this.perfilProfesor[0].nombre}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Apellidos</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{this.perfilProfesor[0].apellidos}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Email</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{this.perfilProfesor[0].email}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Centro</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p>{{this.perfilProfesor[0].centro}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Contraseña</label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><button type="button" routerLink="/modificar-pwd-p" routerLinkActive="active"
+                        class="btn btn-primary">Cambiar Contraseña</button>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
