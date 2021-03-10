@@ -10,6 +10,7 @@ import { AlumnoService } from 'src/app/service/alumno.service';
 export class PerfilAlumnoComponent implements OnInit {
 
   perfilAlumno: Alumno;
+
   constructor(private alumnoService: AlumnoService) {
 
 

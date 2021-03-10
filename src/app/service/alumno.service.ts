@@ -34,7 +34,9 @@ export class AlumnoService {
   modificarPwd(alumno) {
     return this.http.post(`${this.baseUrl}modpwd.php`, JSON.stringify(alumno));
   }
-
+  ranking(alumno) {
+    return this.http.post(`${this.baseUrl}ranking.php`, JSON.stringify(alumno));
+  }
   setDatos(datos) {
     this.datos = datos;
   }
@@ -42,4 +44,12 @@ export class AlumnoService {
   getDatos() {
     return this.datos;
   }
+  setRanking(datos) {
+    this.datos = datos;
+  }
+
+  getRanking() {
+    return this.datos;
+  }
+
 }
