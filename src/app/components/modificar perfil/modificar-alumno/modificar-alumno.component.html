@@ -3,14 +3,14 @@
   <div class="col-md-8">
     <div class="tab-content profile-tab" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <form #itemForm="ngForm" (ngSubmit)="onFormSubmit(itemForm)">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6">
               <label>Nick:</label>
             </div>
-            <div class="col-md-6">
-              <input type="text" class="fadeIn second" id="nick" name="nick" [(ngModel)]="this.perfilAlumno[0].nick"
-                readonly>
+            <div>
+              <input type="text" formControlName="nick" class="form-control"
+              [ngModel]="this.perfilAlumno[0].nick" readonly>
             </div>
           </div>
           <br>
@@ -18,8 +18,13 @@
             <div class="col-md-6">
               <label>Email:</label>
             </div>
-            <div class="col-md-6">
-              <input type="text" class="fadeIn second" id="email" name="email" [(ngModel)]="this.perfilAlumno[0].email">
+            <div>
+              <input type="text" formControlName="email"  class="form-control"
+              [ngModel]="this.perfilAlumno[0].email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+                <div *ngIf="f.email.errors.email">Introduce un email</div>
+              </div>
             </div>
           </div>
           <br>
@@ -27,9 +32,12 @@
             <div class="col-md-6">
               <label>Nombre:</label>
             </div>
-            <div class="col-md-6">
-              <input type="text" class="fadeIn second" id="nombre" name="nombre"
-                [(ngModel)]="this.perfilAlumno[0].nombre">
+            <div>
+              <input type="text" formControlName="nombre" class="form-control"
+              [ngModel]="this.perfilAlumno[0].nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+              <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                <div *ngIf="f.nombre.errors.required">El nombre es obligatorio</div>
+              </div>
             </div>
           </div>
           <br>
@@ -37,16 +45,19 @@
             <div class="col-md-6">
               <label>Apellidos:</label>
             </div>
-            <div class="col-md-6">
-              <input type="text" class="fadeIn second" id="apellidos" name="apellidos"
-                [(ngModel)]="this.perfilAlumno[0].apellidos">
+            <div>
+              <input type="text" formControlName="apellidos" class="form-control"
+              [ngModel]="this.perfilAlumno[0].apellidos"
+                [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }">
+              <div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+                <div *ngIf="f.apellidos.errors.required">El apellido es obligatorio</div>
+              </div>
             </div>
           </div>
           <br><br>
-          <div style=margin-left:58%;>
-            <input type="submit" class="fadeIn fourth" value="Modificar">
-          </div>
+          <input type="submit" class="fadeIn fourth" value="Modificar">
         </form>
       </div>
     </div>
   </div>
+</div>

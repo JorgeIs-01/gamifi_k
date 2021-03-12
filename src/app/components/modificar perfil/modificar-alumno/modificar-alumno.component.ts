@@ -3,6 +3,7 @@ import { Alumno } from 'src/app/models/alumno';
 import { AlumnoService } from '../../../service/alumno.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modificar-alumno',
@@ -11,33 +12,49 @@ import Swal from 'sweetalert2';
 })
 export class ModificarAlumnoComponent implements OnInit {
 
+  registerForm: FormGroup;
+    submitted = false;
   perfilAlumno : Alumno;
   alumnoModel = new Alumno("", "", "", "", "");
 
   constructor(private AlumnoService: AlumnoService,
     private Router: Router,
+    private formBuilder: FormBuilder,
     ) { }
 
 
 
   ngOnInit(): void {
     this.perfilAlumno= this.AlumnoService.getDatos();
+    console.log(this.perfilAlumno);
+    this.registerForm = this.formBuilder.group({
+      nick: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      nombre: ['', Validators.required],
+      apellidos: ['', Validators.required],
 
+    })
   }
-  onFormSubmit(itemForm: any): void {
+  get f() { return this.registerForm.controls; }
+  onSubmit() {
 
-    this.alumnoModel = new Alumno(
-      this.perfilAlumno[0].nick,
-      this.perfilAlumno[0].pwd,
-      this.perfilAlumno[0].email,
-      this.perfilAlumno[0].nombre,
-      this.perfilAlumno[0].apellidos);
+    this.submitted = true;
 
-      console.log(this.alumnoModel);
-
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
 
     this.AlumnoService.modificaralumno(this.alumnoModel).subscribe(
       (datos: Alumno) => {
+        if (datos["result"] === "ERROR") {
+          Swal.fire({
+            icon: 'error',
+            title: datos["result"],
+            text: datos["message"]
+          })
+        }
+        else {
         if (datos!= null) {
           Swal.fire({
             position: 'top',
@@ -53,15 +70,33 @@ export class ModificarAlumnoComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'El usuario introducido ya existe',
+            text: 'Intentalo más tarde.',
           })
         }
         this.AlumnoService.setDatos(datos);
 
       }
-    )
+      })
 
   }
 
+}
+export function MustMatch(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+
+          return;
+      }
+
+
+      if (control.value !== matchingControl.value) {
+          matchingControl.setErrors({ mustMatch: true });
+      } else {
+          matchingControl.setErrors(null);
+      }
+  }
 }
 
