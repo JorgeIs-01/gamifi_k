@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ranking</title>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -22,34 +24,35 @@
         </thead>
         <tbody>
 
-
-<p><li *ngFor="let datos of perfilAlumno">
-  <b> {{datos.perfilAlumno}} </b>
-</li></p>
+          <p>
+            <li *ngFor="let datos of perfilAlumno">
+              <!-- <b> {{datos.perfilAlumno}} </b> -->
+            </li>
+          </p>
           <tr>
-              <td class="rank">1</td>
-              <td class="team">{{this.perfilAlumno[0].apellidos}}  {{this.perfilAlumno[0].nombre}}</td>
-              <td class="points">{{this.perfilAlumno[0].puntos}}</td>
-              <td class="up-down">0</td>
-            </tr>
+            <td class="rank">1</td>
+            <td class="team">{{this.perfilAlumno[0].apellidos}} {{this.perfilAlumno[0].nombre}}</td>
+            <td class="points">{{this.perfilAlumno[0].puntos}}</td>
+            <td class="up-down">0</td>
+          </tr>
           <tr>
-              <td class="rank">2</td>
-              <td class="team">Ramon</td>
-              <td class="points">1340</td>
-              <td class="up-down">0</td>
-            </tr>
-            <tr>
-              <td class="rank">3</td>
-              <td class="team">Portugal</td>
-              <td class="points">1245</td>
-              <td class="up-down">0</td>
-            </tr>
-            <tr>
-              <td class="rank">4</td>
-              <td class="team">Brazil</td>
-              <td class="points">1210</td>
-              <td class="up-down">+2</td>
-            </tr>
+            <td class="rank">2</td>
+            <td class="team">Ramon</td>
+            <td class="points">1340</td>
+            <td class="up-down">0</td>
+          </tr>
+          <tr>
+            <td class="rank">3</td>
+            <td class="team">Portugal</td>
+            <td class="points">1245</td>
+            <td class="up-down">0</td>
+          </tr>
+          <tr>
+            <td class="rank">4</td>
+            <td class="team">Brazil</td>
+            <td class="points">1210</td>
+            <td class="up-down">+2</td>
+          </tr>
 
         </tbody>
       </table>
@@ -57,4 +60,5 @@
   </div>
 
 </body>
+
 </html>
