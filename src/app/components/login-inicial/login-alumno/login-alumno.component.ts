@@ -20,7 +20,7 @@ export class LoginAlumnoComponent implements OnInit {
 
   ) { }
 
-  alumnoModel = new Alumno("", "","");
+  alumnoModel = new Alumno("", "");
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
