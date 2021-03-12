@@ -24,7 +24,7 @@ if($numero!=0){
 else{
 
 
-	$pass=sha1($_POST['pwd']);
+	$pass=sha1($jsonAlumno->pwd);
   $sentencia ="INSERT INTO `registro_alumno`(`nick`, `email`, `pwd`, `nombre`, `apellidos`) VALUES ('$jsonAlumno->nick',
                                                                                                     '$jsonAlumno->email',
                                                                                                     '$pass',

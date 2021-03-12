@@ -23,7 +23,8 @@ if($numero!=0){
 }
 else{
 
-  $pass=sha1($_POST['pwd']);
+  $pwd1 = $jsonProfesor->pwd;
+  $pass=sha1($pwd1);
   $sentencia ="INSERT INTO `registro_profesor`(`nick`, `pwd`, `email`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
                                                                                                                 '$pass',
                                                                                                                 '$jsonProfesor->email',
