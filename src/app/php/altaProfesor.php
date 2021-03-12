@@ -22,10 +22,8 @@ if($numero!=0){
   echo('{ "result": "ERROR1" }');
 }
 else{
-
-  $pass=sha1($_POST['pwd']);
   $sentencia ="INSERT INTO `registro_profesor`(`nick`, `pwd`, `email`, `nombre`, `apellidos`, `centro`) VALUES ('$jsonProfesor->nick',
-                                                                                                                '$pass',
+                                                                                                                '$jsonProfesor->pwd',
                                                                                                                 '$jsonProfesor->email',
                                                                                                                 '$jsonProfesor->nombre',
                                                                                                                 '$jsonProfesor->apellidos',

@@ -13,8 +13,8 @@ if(!$jsonProfesor){
   exit("No hay datos");
 
 }
-$passA=sha1($_POST['pwdA']);
-$instruccion ="SELECT count(*) AS cuantos FROM registro_profesor WHERE pwd = '$passA'";
+
+$instruccion ="SELECT count(*) AS cuantos FROM registro_profesor WHERE pwd = '$jsonProfesor->pwdA'";
 $result = mysqli_query($con, $instruccion);
 
 while ($fila = $result->fetch_assoc()) {
@@ -23,11 +23,11 @@ while ($fila = $result->fetch_assoc()) {
   if($numero==0){
     echo('{ "result": "ERROR", "message": "Contraseña antigua incorrecta"  }');
   } else{
-  $pass=sha1($_POST['pwdN']);
-  $sentencia ="UPDATE `registro_profesor` SET `pwd`='$pass' WHERE `pwd`='$passA'";
+
+  $sentencia ="UPDATE `registro_profesor` SET `pwd`='$jsonProfesor->pwdN' WHERE `pwd`='$jsonProfesor->pwdA'";
 
   if ($res = mysqli_query($con, $sentencia)) {
-      $instruccion2 = "SELECT * FROM registro_profesor WHERE pwd = '$pass'";
+      $instruccion2 = "SELECT * FROM registro_profesor WHERE pwd = '$jsonProfesor->pwdN'";
       $result2 = mysqli_query($con, $instruccion2);
 
       while ($fila = $result2->fetch_assoc()) {
