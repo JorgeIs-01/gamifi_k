@@ -22,12 +22,9 @@ if($numero!=0){
   echo('{ "result": "ERROR1" }');
 }
 else{
-
-
-	$pass=sha1($_POST['pwd']);
   $sentencia ="INSERT INTO `registro_alumno`(`nick`, `email`, `pwd`, `nombre`, `apellidos`) VALUES ('$jsonAlumno->nick',
                                                                                                     '$jsonAlumno->email',
-                                                                                                    '$pass',
+                                                                                                    '$jsonAlumno->pwd',
                                                                                                     '$jsonAlumno->nombre',
                                                                                                     '$jsonAlumno->apellidos')";
   if ($res = mysqli_query($con,$sentencia)) {

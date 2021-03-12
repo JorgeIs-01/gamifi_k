@@ -29,8 +29,7 @@ while ($fila = $result->fetch_assoc()) {
         $pwd2=$fila["pwd"];
     }
 
-    $pass=sha1($_POST['pwd']);
-  if($pwd2 === $pass){
+  if($pwd2 === $jsonProfesor->pwd){
     header('Content-Type: application/json');
     json_encode($datos);
     echo(json_encode($datos));
