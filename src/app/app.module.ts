@@ -20,7 +20,8 @@ import { ModificarAlumnoComponent } from './components/modificar perfil/modifica
 import { ModificarProfesorComponent } from './components/modificar perfil/modificar-profesor/modificar-profesor.component';
 import { ModificarPwdComponent } from './components/modificar perfil/modificar-pwd/modificar-pwd.component';
 import { ModificarPwdPComponent } from './components/modificar perfil/modificar-pwd-p/modificar-pwd-p.component';
-import { RankingComponent } from './ranking/ranking.component';
+import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
+import { RankingComponent } from './rankings/ranking/ranking.component';
 
 
 
@@ -44,6 +45,8 @@ import { RankingComponent } from './ranking/ranking.component';
     ModificarPwdComponent,
     ModificarPwdPComponent,
     RankingComponent,
+    CrearRankingComponent,
+
 
 
 

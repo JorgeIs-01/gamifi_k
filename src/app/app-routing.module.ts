@@ -13,7 +13,8 @@ import { RegistroInicialComponent } from './components/registro/registro-inicial
 import { RegistroProfesorComponent } from './components/registro/registro-profesor/registro-profesor.component';
 import { ModificarPwdComponent } from './components/modificar perfil/modificar-pwd/modificar-pwd.component';
 import { ModificarPwdPComponent } from './components/modificar perfil/modificar-pwd-p/modificar-pwd-p.component';
-import { RankingComponent } from './ranking/ranking.component';
+import { RankingComponent } from './rankings/ranking/ranking.component';
+import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'modificar-pwd', component: ModificarPwdComponent },
   { path: 'modificar-pwd-p', component: ModificarPwdPComponent },
   { path: 'ranking', component: RankingComponent },
+  { path: 'crearRanking', component:   CrearRankingComponent},
   { path: '**', component: AppComponent }
 ];
 

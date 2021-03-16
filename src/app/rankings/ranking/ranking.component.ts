@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from 'src/app/models/alumno';
-import { AlumnoService } from '../service/alumno.service';
+import { Alumno } from 'src/app/models/alumno';3
+import { AlumnoService } from 'src/app/service/alumno.service';
+
 
 @Component({
   selector: 'app-ranking',
