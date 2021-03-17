@@ -20,7 +20,8 @@ export class CrearRankingComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   awd : Profesor;
-  constructor(private perfilProfesor: ProfesorService,
+  //si pones el perfilprofesor en public no muestra error
+  constructor(public perfilProfesor: ProfesorService,
     private RankingService: RankingService,
     private Router: Router,
     private formBuilder: FormBuilder,
@@ -58,7 +59,7 @@ onSubmit() {
           showConfirmButton: false,
           timer: 1500
         })
-        this.Router.navigate(['/ranking']);
+       // this.Router.navigate(['/ranking']);
 
       }
       else if (datos['result'] === 'ERROR1'){
