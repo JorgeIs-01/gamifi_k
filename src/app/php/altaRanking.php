@@ -12,19 +12,21 @@ if(!$jsonRanking){
   exit("No hay datos");
 }
 
-// $instruccion ="SELECT count(*) AS cuantos FROM rankings WHERE nick = '$jsonRanking->NomRanking'";
-// $result = mysqli_query($con, $instruccion);
 
-// while ($fila = $result->fetch_assoc()) {
-//     $numero=$fila["cuantos"];
-// }
-// if($numero!=0){
-//   echo('{ "result": "ERROR1" }');
-// }
 else{
 
-  $sentencia ="INSERT INTO `rankings` (`NomRanking`, `NomProfesor` ) VALUES ('$jsonRanking->nomRanking',
-                                                                            '$jsonRanking->nomProfesor')";
+  function generarCodigo($longitud) {
+    $key = '';
+    $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
+    $max = strlen($pattern)-1;
+    for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
+    return $key;
+  }
+  $Cod = generarCodigo(6);
+
+  $sentencia ="INSERT INTO `rankings` (`NomRanking`, `NomProfesor`, `Cod` ) VALUES ('$jsonRanking->nomRanking',
+                                                                            '$jsonRanking->nomProfesor',
+                                                                            '$Cod')";
   if ($res = mysqli_query($con,$sentencia)) {
     echo('{ "result": "OK" }');
   }
