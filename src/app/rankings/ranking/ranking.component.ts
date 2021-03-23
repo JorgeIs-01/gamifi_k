@@ -1,6 +1,7 @@
+import { DataSource } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from 'src/app/models/alumno';3
-import { AlumnoService } from 'src/app/service/alumno.service';
+import { Ranking } from 'src/app/models/ranking';
+import { RankingService } from 'src/app/service/ranking.service';
 
 
 @Component({
@@ -10,19 +11,14 @@ import { AlumnoService } from 'src/app/service/alumno.service';
 })
 export class RankingComponent implements OnInit {
 
-  perfilAlumno : Alumno;
+  PerfilRanking : Ranking;
 
-  constructor(private AlumnoService: AlumnoService) {
+  constructor(private rankingService: RankingService) {
 
    }
 
   ngOnInit(): void {
-    this.perfilAlumno= this.AlumnoService.getRanking();
-
-  console.log(this.perfilAlumno);
-  console.log(this.perfilAlumno[0].nick);
-  console.log(this.perfilAlumno[1].nick);
-
+    // this.PerfilRanking= this.rankingService.ListRanking();
 }
 
 }

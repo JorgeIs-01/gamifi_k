@@ -34,7 +34,7 @@ export class CrearRankingComponent implements OnInit {
     this.perfilProfesor= this.perfilProfesor.getDatos();
     this.registerForm = this.formBuilder.group({
       nomRanking: ['', Validators.required],
-      nomProfesor: ['', Validators.required],
+      nomProfesor: [this.perfilProfesor[0].nick, Validators.required],
   });
 }
 
@@ -43,12 +43,10 @@ get f() { return this.registerForm.controls; }
 onSubmit() {
   this.submitted = true;
 
-  // stop here if form is invalid
   if (this.registerForm.invalid) {
       return;
   }
 
-  // display form values on success
   this.RankingService.addRanking(this.registerForm.value).subscribe(
     (datos: Ranking) => {
       if (datos['result'] === 'OK') {
@@ -59,7 +57,7 @@ onSubmit() {
           showConfirmButton: false,
           timer: 1500
         })
-       // this.Router.navigate(['/ranking']);
+       this.Router.navigate(['/ranking']);
 
       }
       else if (datos['result'] === 'ERROR1'){

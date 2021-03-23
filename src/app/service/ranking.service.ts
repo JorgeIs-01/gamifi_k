@@ -16,4 +16,20 @@ export class RankingService {
       JSON.stringify(ranking)
     );
   }
+
+  ListRanking(datos) {
+    return this.http.post(
+      `${this.baseUrl}Ranking.php`,
+      JSON.stringify(datos)
+    );
+  }
+
+  setRanking(datos) {
+    this.datos = datos;
+  }
+
+  getRanking() {
+    return this.datos;
+  }
+
 }
