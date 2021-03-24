@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class RankingService {
   baseUrl = 'http://localhost/';
-  datos: any;
+  ranking: any;
 
   constructor(private http: HttpClient) { }
 
@@ -17,19 +17,19 @@ export class RankingService {
     );
   }
 
-  ListRanking(datos) {
+  ListRanking(ranking) {
     return this.http.post(
-      `${this.baseUrl}Ranking.php`,
-      JSON.stringify(datos)
+      `${this.baseUrl}ranking.php`,
+      JSON.stringify(ranking)
     );
   }
 
-  setRanking(datos) {
-    this.datos = datos;
+  setRanking(ranking) {
+    this.ranking = ranking;
   }
 
   getRanking() {
-    return this.datos;
+    return this.ranking;
   }
 
 }

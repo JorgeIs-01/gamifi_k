@@ -18,7 +18,11 @@ export class RankingComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.PerfilRanking= this.rankingService.ListRanking();
+
+    this.PerfilRanking= this.rankingService.getRanking();
+    console.log(this.PerfilRanking);
+
+
 }
 
 }
