@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-03-2021 a las 16:52:16
+-- Tiempo de generación: 25-03-2021 a las 16:22:28
 -- Versión del servidor: 5.6.34
 -- Versión de PHP: 7.1.11
 
@@ -22,62 +22,30 @@ SET time_zone = "+00:00";
 -- Base de datos: `gamifi-k`
 --
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `registro_alumno`
+-- Volcado de datos para la tabla `rankings`
 --
 
-CREATE TABLE `registro_alumno` (
-  `nick` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `email` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
-  `pwd` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `apellidos` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+INSERT INTO `rankings` (`NomRanking`, `NomProfesor`, `Cod`, `Puntos`, `NomEquipo`) VALUES
+('pruebacod', 'prueba', '29llvq', 0, ''),
+('www', 'prueba', '12fo1t', 0, ''),
+('pruebaaaa', 'prueba', 'Z2NRA1', 0, ''),
+('adad', 'prueba', 'K1jCEI', 0, ''),
+('1234', 'prueba', 'lxSkNr', 0, '');
 
 --
 -- Volcado de datos para la tabla `registro_alumno`
 --
 
-INSERT INTO `registro_alumno` (`nick`, `email`, `pwd`, `nombre`, `apellidos`) VALUES
-('prova', 'prova@gmail.com', '123', 'prova', '1'),
-('prova1', 'prova@gmail.com', '123', 'prova', 'prova');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `registro_profesor`
---
-
-CREATE TABLE `registro_profesor` (
-  `nick` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `pwd` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `apellidos` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `centro` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `registro_alumno` (`nick`, `email`, `pwd`, `nombre`, `apellidos`, `puntos`) VALUES
+('marti', 'a@asd', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'asdf', 'asdf', 0);
 
 --
 -- Volcado de datos para la tabla `registro_profesor`
 --
 
 INSERT INTO `registro_profesor` (`nick`, `email`, `pwd`, `nombre`, `apellidos`, `centro`) VALUES
-('k', 'k@w', 'kff', 'k', 'k', 'k'),
-('marti', 'awd@awd.com', '123', 'admin', 'Canela Farre', 'primaria'),
-('prova', '123', 'a', 'prova1', 'prova', 'o'),
-('provaww', 'prova@gmail.com', '123w', 'prova', 'prova', 'ilerna');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `registro_profesor`
---
-ALTER TABLE `registro_profesor`
-  ADD PRIMARY KEY (`nick`);
+('prueba', 'prueba@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 'prueba', '12345678', 'Ilerna');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
