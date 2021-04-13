@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.5
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-03-2021 a las 16:22:28
+-- Tiempo de generación: 13-04-2021 a las 11:45:36
 -- Versión del servidor: 5.6.34
--- Versión de PHP: 7.1.11
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,30 +22,46 @@ SET time_zone = "+00:00";
 -- Base de datos: `gamifi-k`
 --
 
---
--- Volcado de datos para la tabla `rankings`
---
-
-INSERT INTO `rankings` (`NomRanking`, `NomProfesor`, `Cod`, `Puntos`, `NomEquipo`) VALUES
-('pruebacod', 'prueba', '29llvq', 0, ''),
-('www', 'prueba', '12fo1t', 0, ''),
-('pruebaaaa', 'prueba', 'Z2NRA1', 0, ''),
-('adad', 'prueba', 'K1jCEI', 0, ''),
-('1234', 'prueba', 'lxSkNr', 0, '');
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `registro_alumno`
+-- Estructura de tabla para la tabla `rankings`
 --
 
-INSERT INTO `registro_alumno` (`nick`, `email`, `pwd`, `nombre`, `apellidos`, `puntos`) VALUES
-('marti', 'a@asd', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'asdf', 'asdf', 0);
+CREATE TABLE `rankings` (
+  `NomRanking` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `NomProfesor` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Cod` varchar(7) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `registro_profesor`
+-- Estructura de tabla para la tabla `registro_alumno`
 --
 
-INSERT INTO `registro_profesor` (`nick`, `email`, `pwd`, `nombre`, `apellidos`, `centro`) VALUES
-('prueba', 'prueba@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', 'prueba', '12345678', 'Ilerna');
+CREATE TABLE `registro_alumno` (
+  `nick` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `pwd` varchar(500) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registro_profesor`
+--
+
+CREATE TABLE `registro_profesor` (
+  `nick` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `pwd` varchar(500) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `centro` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
