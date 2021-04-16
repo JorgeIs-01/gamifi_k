@@ -24,6 +24,13 @@ export class RankingService {
     );
   }
 
+  entrarCodRanking(ranking) {
+    return this.http.post(
+      `${this.baseUrl}entrarRanking.php`,
+      JSON.stringify(ranking)
+    );
+  }
+
   setRanking(ranking) {
     this.ranking = ranking;
   }

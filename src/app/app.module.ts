@@ -22,6 +22,7 @@ import { ModificarPwdComponent } from './components/modificar perfil/modificar-p
 import { ModificarPwdPComponent } from './components/modificar perfil/modificar-pwd-p/modificar-pwd-p.component';
 import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
 import { RankingComponent } from './rankings/ranking/ranking.component';
+import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entrar-ranking.component';
 
 
 
@@ -46,6 +47,7 @@ import { RankingComponent } from './rankings/ranking/ranking.component';
     ModificarPwdPComponent,
     RankingComponent,
     CrearRankingComponent,
+    EntrarRankingComponent,
 
 
 

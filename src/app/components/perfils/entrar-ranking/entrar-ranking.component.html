@@ -1,0 +1,26 @@
+<br>
+<a routerLink="/perfil-alumno" routerLinkActive="active" class="profile-edit-btn">Salir sin guardar</a>
+
+<div class="container emp-profile">
+  <div class="col-md-8">
+    <div class="tab-content profile-tab" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div>
+            <input type="text" formControlName="codRanking" placeholder="CODIGO del ranking" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.codRanking.errors }">
+            <div *ngIf="submitted && f.codRanking.errors" class="invalid-feedback">
+              <div *ngIf="f.codRanking.errors.required">El nombre es obligatorio</div>
+            </div>
+          </div>
+
+
+          <div style=margin-left:58%;>
+            <input type="submit" class="fadeIn fourth" value="ENTRAR">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

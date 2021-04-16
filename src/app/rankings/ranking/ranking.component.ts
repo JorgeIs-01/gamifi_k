@@ -14,6 +14,7 @@ import { RankingService } from 'src/app/service/ranking.service';
 export class RankingComponent implements OnInit {
 
   PerfilRanking : Ranking;
+  Router : Router;
   rankingModel = new Ranking("", "", "");
   constructor(private rankingService: RankingService) {
 
