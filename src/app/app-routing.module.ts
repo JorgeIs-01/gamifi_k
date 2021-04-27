@@ -16,6 +16,7 @@ import { ModificarPwdPComponent } from './components/modificar perfil/modificar-
 import { RankingComponent } from './rankings/ranking/ranking.component';
 import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
 import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entrar-ranking.component';
+import { ListarRankingAlumnoComponent } from './rankings/listar-ranking-alumno/listar-ranking-alumno.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'ranking', component: RankingComponent },
   { path: 'crearRanking', component:   CrearRankingComponent},
   { path: 'entrarRanking', component:  EntrarRankingComponent},
-
+  { path: 'listar-ranking-alumno', component:  ListarRankingAlumnoComponent},
   { path: '**', component: AppComponent }
 ];
 

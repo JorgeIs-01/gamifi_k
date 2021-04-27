@@ -23,6 +23,7 @@ import { ModificarPwdPComponent } from './components/modificar perfil/modificar-
 import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
 import { RankingComponent } from './rankings/ranking/ranking.component';
 import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entrar-ranking.component';
+import { ListarRankingAlumnoComponent } from './rankings/listar-ranking-alumno/listar-ranking-alumno.component';
 
 
 
@@ -48,6 +49,7 @@ import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entr
     RankingComponent,
     CrearRankingComponent,
     EntrarRankingComponent,
+    ListarRankingAlumnoComponent,
 
 
 

@@ -16,7 +16,12 @@ export class RankingService {
       JSON.stringify(ranking)
     );
   }
-
+  ListRankingAlumno(ranking) {
+    return this.http.post(
+      `${this.baseUrl}rankingalumno.php`,
+      JSON.stringify(ranking)
+    );
+  }
   ListRanking(ranking) {
     return this.http.post(
       `${this.baseUrl}ranking.php`,
