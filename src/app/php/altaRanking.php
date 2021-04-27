@@ -31,7 +31,6 @@ else{
 
 $sentencia1 ="CREATE TABLE `$Cod` (
   `nick` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `nick` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
   `nombre` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
   `apellido` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;";
