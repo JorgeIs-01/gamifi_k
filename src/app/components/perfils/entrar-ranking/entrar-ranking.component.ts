@@ -57,7 +57,7 @@ export class EntrarRankingComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-         this.Router.navigate(['/ranking']);
+         this.Router.navigate(['/perfil-alumno']);
 
         }
         else if (datos['result'] === 'ERROR1'){

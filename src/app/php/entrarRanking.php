@@ -16,7 +16,7 @@ if(!$jsonRanking){
 else{
 
 
-$instruccion ="SELECT count(*) AS cuantos FROM `$jsonRanking->codRanking` WHERE nick = '$jsonRanking->nick'"; 
+$instruccion ="SELECT count(*) AS cuantos FROM `alumno_rankings` WHERE nick = '$jsonRanking->nick' AND cod = '$jsonRanking->codRanking'";
 $result = mysqli_query($con, $instruccion);
 
 while ($fila = $result->fetch_assoc()) {
@@ -27,10 +27,10 @@ if($numero!=0){
 }
 
 else{
-    
-  $sentencia ="INSERT INTO `$jsonRanking->codRanking` (`nick`, `nombre`, `apellido` ) VALUES ('$jsonRanking->nick',
-                                                                                              '$jsonRanking->nombre',
-                                                                                              '$jsonRanking->apellidos')";
+
+  $sentencia ="INSERT INTO `alumno_rankings` (`nick`, `cod`, `puntos` ) VALUES ('$jsonRanking->nick',
+                                                                                '$jsonRanking->codRanking',
+                                                                                 0)";
 
     if ($res = mysqli_query($con,$sentencia)) {
     echo('{ "result": "OK" }');
