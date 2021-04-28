@@ -5,7 +5,6 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-nRank prof cod
       $instruccion2 = "SELECT rankings.* FROM rankings, alumno_rankings where rankings.Cod=alumno_rankings.cod AND nick='marti'";
       $result2 = mysqli_query($con, $instruccion2);
 

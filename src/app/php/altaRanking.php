@@ -29,13 +29,6 @@ else{
                                                                             '$jsonRanking->nomProfesor',
                                                                             '$Cod')";
 
-$sentencia1 ="CREATE TABLE `$Cod` (
-  `nick` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `nombre` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellido` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;";
-
-
 
   if ($res = mysqli_query($con,$sentencia) && $res1 = mysqli_query($con,$sentencia1)) {
     echo('{ "result": "OK" }');

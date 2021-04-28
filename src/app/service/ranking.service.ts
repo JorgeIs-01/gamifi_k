@@ -36,6 +36,17 @@ export class RankingService {
     );
   }
 
+  borrarRanking(datos) {
+    console.log(datos);
+
+    return this.http.post(
+      `${this.baseUrl}borrarRanking.php`,
+      JSON.stringify(datos)
+    );
+
+
+  }
+
   setRanking(ranking) {
     this.ranking = ranking;
   }

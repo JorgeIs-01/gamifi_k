@@ -155,7 +155,8 @@ table.table td a.edit {
 	color: #FFC107;
 }
 table.table td a.delete {
-	color: #F44336;
+  color: #F44336;
+  cursor: pointer;
 }
 table.table td i {
 	font-size: 19px;

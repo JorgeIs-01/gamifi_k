@@ -18,7 +18,7 @@
               <th></th>
               <th>Nombre</th>
               <th>Codigo</th>
-              <th>Acions</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -27,10 +27,10 @@
               <td>{{ListaRanking['NomRanking']}}</td>
               <td>{{ListaRanking['Cod']}}</td>
               <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons"
-                    data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                <a class="edit"><i class="material-icons"
+                    data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                <a class="delete" (click)="borrar(i)"><i class="material-icons"
+                    data-toggle="tooltip" title="Borrar">&#xE872;</i></a>
               </td>
             </tr>
           </tbody>
