@@ -17,6 +17,7 @@ import { RankingComponent } from './rankings/ranking/ranking.component';
 import { CrearRankingComponent } from './rankings/crear-ranking/crear-ranking.component';
 import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entrar-ranking.component';
 import { ListarRankingAlumnoComponent } from './rankings/listar-ranking-alumno/listar-ranking-alumno.component';
+import { UnRankingAlumneComponent } from './rankings/un-ranking-alumne/un-ranking-alumne.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'crearRanking', component:   CrearRankingComponent},
   { path: 'entrarRanking', component:  EntrarRankingComponent},
   { path: 'listar-ranking-alumno', component:  ListarRankingAlumnoComponent},
+  { path: 'un-ranking-alumne', component:  UnRankingAlumneComponent},
   { path: '**', component: AppComponent }
 ];
 

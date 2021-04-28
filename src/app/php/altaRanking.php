@@ -30,8 +30,11 @@ else{
                                                                             '$Cod')";
 
 
-  if ($res = mysqli_query($con,$sentencia) && $res1 = mysqli_query($con,$sentencia1)) {
+  if ($res = mysqli_query($con,$sentencia)) {
     echo('{ "result": "OK" }');
+  }
+  else {
+    echo('{ "result": "ERROR1" }');
   }
 
 }

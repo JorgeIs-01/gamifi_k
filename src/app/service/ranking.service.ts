@@ -36,15 +36,18 @@ export class RankingService {
     );
   }
 
-  borrarRanking(datos) {
-    console.log(datos);
+  UnListRankingAlumno(datos) {
+    return this.http.post(
+      `${this.baseUrl}ListarUnRankingAlumno.php`,
+      JSON.stringify(datos)
+    );
+  }
 
+  borrarRanking(datos) {
     return this.http.post(
       `${this.baseUrl}borrarRanking.php`,
       JSON.stringify(datos)
     );
-
-
   }
 
   setRanking(ranking) {

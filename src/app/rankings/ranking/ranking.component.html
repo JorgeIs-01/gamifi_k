@@ -16,22 +16,30 @@
           <thead>
             <tr>
               <th></th>
+              <th></th>
               <th>Nombre</th>
               <th>Codigo</th>
+              <th></th>
               <th>Acciones</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let ListaRanking of ListaRanking; index as i ">
               <td></td>
+              <td></td>
               <td>{{ListaRanking['NomRanking']}}</td>
               <td>{{ListaRanking['Cod']}}</td>
+              <td></td>
               <td>
+                <a class="ver"><i class="material-icons"
+                  data-toggle="tooltip" title="Ver">&#xe417;</i></a>
                 <a class="edit"><i class="material-icons"
                     data-toggle="tooltip" title="Editar">&#xE254;</i></a>
                 <a class="delete" (click)="borrar(i)"><i class="material-icons"
                     data-toggle="tooltip" title="Borrar">&#xE872;</i></a>
               </td>
+              <td></td>
             </tr>
           </tbody>
         </table>
