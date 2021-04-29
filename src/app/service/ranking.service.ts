@@ -5,9 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RankingService {
+
   baseUrl = 'http://localhost/';
   ranking: any;
-  datos1: any;
+  codigo;
   constructor(private http: HttpClient) { }
 
   addRanking(ranking) {
@@ -41,16 +42,21 @@ export class RankingService {
       `${this.baseUrl}ListarUnRankingAlumno.php`,
       JSON.stringify(datos1)
     );
-  }
+ }
 
-  getUnRanking() {
-    return this.datos1;
-  }
-
-  borrarRanking(datos) {
+ borrarRanking(datos) {
     return this.http.post(
       `${this.baseUrl}borrarRanking.php`,
       JSON.stringify(datos)
     );
   }
+
+  enviarCodigo(datos) {
+  this.codigo=datos;
+  }
+
+  getCodigo() {
+    return this.codigo;
+    }
+
 }

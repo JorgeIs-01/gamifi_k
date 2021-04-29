@@ -13,17 +13,16 @@ export class UnRankingAlumneComponent implements OnInit {
   ListaRanking;
   PerfilRanking : Ranking;
   Router : Router;
+  Ranking;
   rankingModel = new Ranking("", "", "");
   constructor(private rankingService: RankingService) { }
 
   ngOnInit(): void {
-    // this.rankingService.getUnRanking(this.rankingService).subscribe(
-    //   (datos: Ranking[]) => {
 
-    //     this.ListaRanking = datos;
+    console.log(this.rankingService.getCodigo());
+    this.Ranking=this.rankingService.getCodigo();
 
-    //   }
-    // );
+
   }
 
 }

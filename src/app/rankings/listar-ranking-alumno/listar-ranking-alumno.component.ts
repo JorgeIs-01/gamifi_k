@@ -31,6 +31,8 @@ export class ListarRankingAlumnoComponent implements OnInit {
     this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
           (datos1: any) => {
             console.log(datos1);
+            this.rankingService.enviarCodigo(datos1);
+
             if (datos1 != null) {
               Swal.fire({
                 position: 'top',
