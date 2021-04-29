@@ -17,13 +17,13 @@ export class UnRankingAlumneComponent implements OnInit {
   constructor(private rankingService: RankingService) { }
 
   ngOnInit(): void {
-    this.rankingService.UnListRankingAlumno(this.rankingService).subscribe(
-      (datos: Ranking[]) => {
-        this.ListaRanking = datos;
-        console.log(this.ListaRanking);
+    // this.rankingService.getUnRanking(this.rankingService).subscribe(
+    //   (datos: Ranking[]) => {
 
-      }
-    );
+    //     this.ListaRanking = datos;
+
+    //   }
+    // );
   }
 
 }

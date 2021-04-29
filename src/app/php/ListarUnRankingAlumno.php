@@ -9,17 +9,18 @@ $texto = file_get_contents("php://input");
 $jsonRanking = json_decode($texto);
 
 
-      $instruccion2 = "SELECT * FROM  alumno_rankings where cod=$texto";
+      $instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto";
 
 
-  if($res = mysqli_query($con,$instruccion2)){
+  if($res = mysqli_query($con,$instruccion)){
     // header('Content-Type: application/json');
     // echo(json_encode($texto));
-    echo('{ "result": "OK" }');
 
+    while ($fila = $res->fetch_assoc()) {
+      $datos [] =$fila;
 
-  } else{
-    echo(json_encode('ERROR'));
-    }
+  }
+    echo(json_encode($datos));
 
+  }
 ?>

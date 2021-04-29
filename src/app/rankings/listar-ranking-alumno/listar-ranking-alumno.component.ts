@@ -12,20 +12,17 @@ import Swal from 'sweetalert2';
 export class ListarRankingAlumnoComponent implements OnInit {
   ListaRanking;
   PerfilRanking : Ranking;
-  Router : Router;
   rankingModel = new Ranking("", "", "");
 
-  constructor(private rankingService: RankingService) {
+  constructor(private rankingService: RankingService,
+    private Router : Router) {
 
   }
 
   ngOnInit(): void {
     this.rankingService.ListRankingAlumno(this.rankingService).subscribe(
       (datos: Ranking[]) => {
-
         this.ListaRanking = datos;
-        console.log(this.ListaRanking);
-
       }
     );
   }
@@ -33,7 +30,8 @@ export class ListarRankingAlumnoComponent implements OnInit {
   ver(index:number){
     this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
           (datos1: any) => {
-            if (datos1['result'] === 'OK') {
+            console.log(datos1);
+            if (datos1 != null) {
               Swal.fire({
                 position: 'top',
                 icon: 'success',
@@ -50,6 +48,14 @@ export class ListarRankingAlumnoComponent implements OnInit {
                 title: 'Error',
                 text: 'No se ha podido entrar al ranking.',
               })
+            }
+            else{
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se adwdwddd podido entrar al ranking.',
+              })
+
             }
           }
         )
