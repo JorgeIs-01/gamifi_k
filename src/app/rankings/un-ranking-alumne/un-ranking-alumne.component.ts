@@ -19,7 +19,7 @@ export class UnRankingAlumneComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.rankingService.getCodigo());
+
     this.Ranking=this.rankingService.getCodigo();
 
 

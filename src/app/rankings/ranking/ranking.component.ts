@@ -1,4 +1,3 @@
-import { DataSource } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { Ranking } from 'src/app/models/ranking';
 import { Router } from '@angular/router';
@@ -13,11 +12,11 @@ import { RankingService } from 'src/app/service/ranking.service';
 })
 export class RankingComponent implements OnInit {
   ListaRanking;
-  private RankingService: RankingService
   PerfilRanking : Ranking;
-  Router : Router;
   rankingModel = new Ranking("", "", "");
-  constructor(private rankingService: RankingService) {
+  constructor(private rankingService: RankingService,
+    private Router : Router
+    ) {
 
    }
 
@@ -72,6 +71,35 @@ borrar(index:number){
     }
   })
   }
+
+  ver(index:number){
+    this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
+          (datos: any) => {
+            console.log(datos);
+            this.rankingService.enviarCodigo(datos);
+
+            if (datos != null) {
+              Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Se ha entrado al ranking correctamente.',
+                showConfirmButton: false,
+                timer: 1500
+              })
+             this.Router.navigate(['/un-ranking-profe']);
+
+            }
+            else if (datos = null){
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se ha podido entrar al ranking.',
+              })
+            }
+          }
+        )
+      }
+
 
 onFormSubmit() {
 

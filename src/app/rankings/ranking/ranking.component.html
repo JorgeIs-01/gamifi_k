@@ -17,8 +17,8 @@
             <tr>
               <th></th>
               <th></th>
-              <th>Nombre</th>
-              <th>Codigo</th>
+              <th>Nombre Ranking</th>
+              <th>Codigo del Profesor</th>
               <th></th>
               <th>Acciones</th>
               <th></th>
@@ -32,7 +32,7 @@
               <td>{{ListaRanking['Cod']}}</td>
               <td></td>
               <td>
-                <a class="ver"><i class="material-icons"
+                <a class="ver" (click)="ver(i)"><i class="material-icons"
                   data-toggle="tooltip" title="Ver">&#xe417;</i></a>
                 <a class="edit"><i class="material-icons"
                     data-toggle="tooltip" title="Editar">&#xE254;</i></a>
