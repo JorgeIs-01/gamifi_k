@@ -3,10 +3,15 @@ require_once 'database.php';
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
-      $instruccion2 = "SELECT rankings.* FROM rankings, alumno_rankings where rankings.Cod=alumno_rankings.cod AND nick='marti'";
+$datos = file_get_contents("php://input");
+$jsonAlumne = json_decode($datos);
+
+
+
+      $instruccion2 = "SELECT rankings.* FROM rankings, alumno_rankings where rankings.Cod=alumno_rankings.cod AND nick='$jsonAlumne'";
       $result2 = mysqli_query($con, $instruccion2);
+
 
       while ($fila = $result2->fetch_assoc()) {
            $ranking [] =$fila;

@@ -3,6 +3,7 @@ import { RankingService } from 'src/app/service/ranking.service';
 import { Ranking } from 'src/app/models/ranking';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AlumnoService } from 'src/app/service/alumno.service';
 
 @Component({
   selector: 'app-listar-ranking-alumno',
@@ -15,17 +16,23 @@ export class ListarRankingAlumnoComponent implements OnInit {
   rankingModel = new Ranking("", "", "");
 
   constructor(private rankingService: RankingService,
+    private alumnoService: AlumnoService,
     private Router : Router) {
+
+     console.log(this.alumnoService["datos"][0].nick);
 
   }
 
   ngOnInit(): void {
-    this.rankingService.ListRankingAlumno(this.rankingService).subscribe(
+    this.rankingService.ListRankingAlumno(this.alumnoService["datos"][0].nick).subscribe(
       (datos: Ranking[]) => {
         this.ListaRanking = datos;
+
       }
     );
   }
+
+
 
   ver(index:number){
     this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(

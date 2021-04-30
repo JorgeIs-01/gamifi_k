@@ -28,8 +28,10 @@ if($numero!=0){
 
 else{
 
-  $sentencia ="INSERT INTO `alumno_rankings` (`nick`, `cod`, `puntos` ) VALUES ('$jsonRanking->nick',
+  $sentencia ="INSERT INTO `alumno_rankings` (`nick`, `cod`, `nombre`,  `apellidos`, `puntos` ) VALUES ('$jsonRanking->nick',
                                                                                 '$jsonRanking->codRanking',
+                                                                                '$jsonRanking->nombre',
+                                                                                '$jsonRanking->apellidos',
                                                                                  0)";
 
     if ($res = mysqli_query($con,$sentencia)) {

@@ -9,7 +9,7 @@ $texto = file_get_contents("php://input");
 $jsonRanking = json_decode($texto);
 
 
-      $instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto";
+      $instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto ORDER BY puntos";
 
 
   if($res = mysqli_query($con,$instruccion)){
