@@ -26,6 +26,7 @@ import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entr
 import { ListarRankingAlumnoComponent } from './rankings/listar-ranking-alumno/listar-ranking-alumno.component';
 import { UnRankingAlumneComponent } from './rankings/un-ranking-alumne/un-ranking-alumne.component';
 import { UnRankingProfeComponent } from './rankings/un-ranking-profe/un-ranking-profe.component';
+import { EditarRankingComponent } from './rankings/editar-ranking/editar-ranking.component';
 
 
 
@@ -54,6 +55,7 @@ import { UnRankingProfeComponent } from './rankings/un-ranking-profe/un-ranking-
     ListarRankingAlumnoComponent,
     UnRankingAlumneComponent,
     UnRankingProfeComponent,
+    EditarRankingComponent,
 
 
 

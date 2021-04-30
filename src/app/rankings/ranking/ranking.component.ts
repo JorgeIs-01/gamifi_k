@@ -34,7 +34,7 @@ export class RankingComponent implements OnInit {
 }
 borrar(index:number){
   Swal.fire({
-    title: 'Estas seguiro?',
+    title: 'Estas seguiro que quieres eliminar el Ranking?',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -72,7 +72,7 @@ borrar(index:number){
   })
   }
 
-  ver(index:number){
+ver(index:number){
     this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
           (datos: any) => {
             console.log(datos);
@@ -99,6 +99,25 @@ borrar(index:number){
           }
         )
       }
+
+edit(index:number){
+  this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
+        (datos: any) => {
+          console.log(datos);
+          this.rankingService.enviarCodigo(datos);
+          if (datos != null) {
+           this.Router.navigate(['/editar-ranking']);
+          }
+          else if (datos = null){
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se ha podido entrar al ranking.',
+            })
+          }
+        }
+      )
+    }
 
 
 onFormSubmit() {

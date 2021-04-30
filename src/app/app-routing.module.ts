@@ -19,6 +19,7 @@ import { EntrarRankingComponent } from './components/perfils/entrar-ranking/entr
 import { ListarRankingAlumnoComponent } from './rankings/listar-ranking-alumno/listar-ranking-alumno.component';
 import { UnRankingAlumneComponent } from './rankings/un-ranking-alumne/un-ranking-alumne.component';
 import { UnRankingProfeComponent } from './rankings/un-ranking-profe/un-ranking-profe.component';
+import { EditarRankingComponent } from './rankings/editar-ranking/editar-ranking.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,8 @@ const routes: Routes = [
   { path: 'listar-ranking-alumno', component:  ListarRankingAlumnoComponent},
   { path: 'un-ranking-alumne', component:  UnRankingAlumneComponent},
   { path: 'un-ranking-profe', component:  UnRankingProfeComponent},
+  { path: 'editar-ranking', component:  EditarRankingComponent},
+
   { path: '**', component: AppComponent }
 ];
 

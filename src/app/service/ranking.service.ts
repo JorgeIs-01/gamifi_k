@@ -9,6 +9,7 @@ export class RankingService {
   baseUrl = 'http://localhost/';
   ranking: any;
   codigo;
+  datos1: any;
   constructor(private http: HttpClient) { }
 
   addRanking(ranking) {
@@ -43,6 +44,12 @@ export class RankingService {
       JSON.stringify(datos1)
     );
  }
+ editarRanking(datos1) {
+  return this.http.post(
+    `${this.baseUrl}editRanking.php`,
+    JSON.stringify(datos1)
+  );
+}
 
  borrarRanking(datos) {
     return this.http.post(
@@ -58,5 +65,10 @@ export class RankingService {
   getCodigo() {
     return this.codigo;
     }
+
+
+  setDatos(datos1){
+    this.datos1=datos1;
+  }
 
 }
