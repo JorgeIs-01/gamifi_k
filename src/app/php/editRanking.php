@@ -8,6 +8,15 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 $texto = file_get_contents("php://input");
 $jsonRanking = json_decode($texto);
 
+$instruccion1 ="SELECT count(*) AS cuantos FROM alumno_rankings WHERE cod =$texto";
+$result = mysqli_query($con, $instruccion1);
+  while ($fila1 = $result->fetch_assoc()) {
+    $numero=$fila1["cuantos"];
+  }
+  if($numero==0){
+  echo('{ "result": "ERROR" }');
+  } else{
+
 
       $instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto ORDER BY apellidos ASC";
 
@@ -20,4 +29,5 @@ $jsonRanking = json_decode($texto);
     echo(json_encode($datos));
 
   }
+}
 ?>

@@ -80,18 +80,18 @@ ver(index:number){
           (datos: any) => {
             console.log(datos);
             this.rankingService.enviarCodigo(datos);
-
-            if (datos != null) {
-             this.Router.navigate(['/un-ranking-profe']);
-
-            }
-            else if (datos = null){
+             if (datos['result'] === 'ERROR'){
               Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'No se ha podido entrar al ranking.',
+                text: 'El Ranking esta vacio ',
               })
             }
+             else {
+              this.Router.navigate(['/un-ranking-profe']);
+
+            }
+
           }
         )
       }
@@ -141,15 +141,16 @@ edit(index:number){
         (datos2: any) => {
           console.log(datos2);
           this.rankingService.enviarCodigo(datos2);
-          if (datos2 != null) {
-           this.Router.navigate(['/editar-ranking']);
-          }
-          else if (datos2 = null){
+          if (datos2['result'] === 'ERROR'){
             Swal.fire({
               icon: 'error',
               title: 'Error',
-              text: 'No se ha podido entrar al ranking.',
+              text: 'El Ranking esta vacio',
             })
+          }
+          else{
+              this.Router.navigate(['/editar-ranking']);
+
           }
         }
       )
