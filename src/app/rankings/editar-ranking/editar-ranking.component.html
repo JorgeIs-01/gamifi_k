@@ -16,12 +16,16 @@
             </tr>
           </thead>
           <tbody>
-             <tr *ngFor="let ListaRanking of Ranking; index as i;">
+             <tr *ngFor="let ListaRanking of Ranking; index as i ">
               <td></td>
               <td>{{ListaRanking.nick}}</td>
               <td>{{ListaRanking.nombre}}</td>
               <td>{{ListaRanking.apellidos}}</td>
-              <td>{{ListaRanking.puntos}}</td>
+              <td>{{ListaRanking.puntos}}
+                <a class="mod" (click)="mod(i)"><i class="material-icons"
+                  data-toggle="tooltip" title="Modificar puntuación">&#xe22b;</i></a>
+              </td>
+
             </tr>
           </tbody>
         </table>

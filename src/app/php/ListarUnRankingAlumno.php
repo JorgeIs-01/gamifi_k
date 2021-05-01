@@ -17,7 +17,7 @@ $result = mysqli_query($con, $instruccion1);
   echo('{ "result": "ERROR" }');
   } else{
 
-$instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto ORDER BY puntos";
+$instruccion = "SELECT * FROM `alumno_rankings` WHERE cod=$texto ORDER BY puntos desc";
 
 
   if($res = mysqli_query($con,$instruccion)){
