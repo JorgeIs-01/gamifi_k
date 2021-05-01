@@ -10,6 +10,8 @@
             <tr>
               <th></th>
               <th>Nick del usuario</th>
+              <th>Nombre del usuario</th>
+              <th>Apellido del usuario</th>
               <th>Puntos</th>
             </tr>
           </thead>
@@ -18,6 +20,8 @@
             <tr *ngFor="let ListaRanking of Ranking; index as i">
               <td></td>
               <td>{{i}}. {{ListaRanking['nick']}}</td>
+              <td>{{ListaRanking['nombre']}}</td>
+              <td>{{ListaRanking['apellidos']}}</td>
               <td>{{ListaRanking['puntos']}}</td>
 
             </tr>

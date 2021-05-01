@@ -21,9 +21,6 @@ export class RankingComponent implements OnInit {
     private Router : Router
     ) {
 
-      console.log(this.profesorService["datos"][0].nick);
-
-
    }
 
   ngOnInit(): void {
@@ -140,14 +137,14 @@ modcod(index:number){
   }
 
 edit(index:number){
-  this.rankingService.UnListRankingAlumno(this.ListaRanking[index].Cod).subscribe(
-        (datos: any) => {
-          console.log(datos);
-          this.rankingService.enviarCodigo(datos);
-          if (datos != null) {
+  this.rankingService.editarRanking(this.ListaRanking[index].Cod).subscribe(
+        (datos2: any) => {
+          console.log(datos2);
+          this.rankingService.enviarCodigo(datos2);
+          if (datos2 != null) {
            this.Router.navigate(['/editar-ranking']);
           }
-          else if (datos = null){
+          else if (datos2 = null){
             Swal.fire({
               icon: 'error',
               title: 'Error',

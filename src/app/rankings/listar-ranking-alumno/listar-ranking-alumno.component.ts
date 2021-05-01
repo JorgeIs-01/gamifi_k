@@ -27,6 +27,8 @@ export class ListarRankingAlumnoComponent implements OnInit {
     this.rankingService.ListRankingAlumno(this.alumnoService["datos"][0].nick).subscribe(
       (datos: Ranking[]) => {
         this.ListaRanking = datos;
+        console.log(this.ListaRanking);
+
 
       }
     );

@@ -18,9 +18,9 @@ $jsonRanking = json_decode($texto);
 
     while ($fila = $res->fetch_assoc()) {
       $datos [] =$fila;
-      echo(json_encode($datos));
 
   }
+    echo(json_encode($datos));
 
   }
 ?>
