@@ -41,28 +41,14 @@ export class ListarRankingAlumnoComponent implements OnInit {
             this.rankingService.enviarCodigo(datos1);
 
             if (datos1 != null) {
-              Swal.fire({
-                position: 'top',
-                icon: 'success',
-                title: 'Se ha entrado al ranking correctamente.',
-                showConfirmButton: false,
-                timer: 1500
-              })
              this.Router.navigate(['/un-ranking-alumne']);
 
-            }
-            else if (datos1['result'] === 'ERROR1'){
-              Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'No se ha podido entrar al ranking.',
-              })
             }
             else{
               Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'No se adwdwddd podido entrar al ranking.',
+                text: 'No se ha podido entrar al ranking.',
               })
 
             }

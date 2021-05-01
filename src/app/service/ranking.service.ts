@@ -38,6 +38,13 @@ export class RankingService {
     );
   }
 
+  modrank(ranking) {
+    return this.http.post(
+      `${this.baseUrl}modcod.php`,
+      JSON.stringify(ranking)
+    );
+  }
+
   UnListRankingAlumno(datos1) {
     return this.http.post(
       `${this.baseUrl}ListarUnRankingAlumno.php`,

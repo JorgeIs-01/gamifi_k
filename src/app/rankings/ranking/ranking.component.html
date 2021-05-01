@@ -29,15 +29,19 @@
               <td></td>
               <td></td>
               <td>{{ListaRanking['NomRanking']}}</td>
-              <td>{{ListaRanking['Cod']}}</td>
+              <td>{{ListaRanking['Cod']}}
+                <a (click)="modcod(i)"><i class="material-icons"
+                  data-toggle="tooltip" title="Modificar Codigo">&#xe863;	</i></a>
+              </td>
               <td></td>
               <td>
                 <a class="ver" (click)="ver(i)"><i class="material-icons"
-                  data-toggle="tooltip" title="Ver">&#xe417;</i></a>
+                  data-toggle="tooltip" title="Ver">&#xe417;   </i></a>
                 <a class="edit"(click)="edit(i)"><i class="material-icons"
-                    data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                    data-toggle="tooltip" title="Editar">&#xE254;    </i></a>
                 <a class="delete" (click)="borrar(i)"><i class="material-icons"
                     data-toggle="tooltip" title="Borrar">&#xE872;</i></a>
+
               </td>
               <td></td>
             </tr>
