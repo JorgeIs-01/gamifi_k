@@ -38,13 +38,6 @@ export class RankingService {
     );
   }
 
-  guardarpunt(ranking) {
-    return this.http.post(
-      `${this.baseUrl}guardarpunt.php`,
-      JSON.stringify(ranking)
-    );
-  }
-
   modrank(ranking) {
     return this.http.post(
       `${this.baseUrl}modcod.php`,

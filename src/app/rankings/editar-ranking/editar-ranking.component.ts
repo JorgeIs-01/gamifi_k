@@ -4,6 +4,8 @@ import { RankingService } from 'src/app/service/ranking.service';
 import { Router } from '@angular/router';
 import { Ranking } from 'src/app/models/ranking';
 import Swal from 'sweetalert2';
+import { ModpuntService } from 'src/app/service/modpunt.service';
+import { guardarpuntos } from '../../../app/models/guardarpuntos';
 
 @Component({
   selector: 'app-editar-ranking',
@@ -19,17 +21,18 @@ export class EditarRankingComponent implements OnInit {
 
   constructor(
     private Router: Router,
-    private formBuilder: FormBuilder,
-    private rankingService: RankingService
+    private rankingService: RankingService,
+    private ModpuntService: ModpuntService
   ) {}
+  awd = new guardarpuntos("", "");
 
   ngOnInit(): void {
     this.Ranking = this.rankingService.getCodigo();
   }
 
   mod(index: number) {
-    console.log(this.PerfilRanking);
-
+    console.log(this.Ranking[index].nick);
+    this.awd.cod = this.Ranking[index].nick;
     Swal.fire({
       title: 'Puntuación:',
       input: 'text',
@@ -55,13 +58,12 @@ export class EditarRankingComponent implements OnInit {
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(result.value.login);
-        console.log(this.ListaRanking[index]);
+        this.awd.puntos = result.value.login;
+        console.log(this.awd);
 
-        this.rankingService
-          .guardarpunt(result.value.login)
+        this.ModpuntService
+          .guardarpunt(this.awd)
           .subscribe((datos: any) => {
-            console.log(datos);
             this.rankingService.enviarCodigo(datos);
             if (datos['result'] === 'ERROR') {
               Swal.fire({
@@ -70,6 +72,8 @@ export class EditarRankingComponent implements OnInit {
                 text: 'El Ranking esta vacio ',
               });
             } else {
+              console.log(datos);
+
               this.Router.navigate(['/un-ranking-profe']);
             }
           });

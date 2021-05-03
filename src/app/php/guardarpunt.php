@@ -6,16 +6,16 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 $texto = file_get_contents("php://input");
-$jsonRanking= json_decode($texto);
+$jsonGuardar= json_decode($texto);
 
 
-if(!$jsonRanking){
-    
+if(!$jsonGuardar){
+
   exit("No hay datos");
 
 }
 
-  $sentencia ="UPDATE `alumno_rankings` SET `puntos`=$texto WHERE `nick`='marti'";
+  $sentencia ="UPDATE `alumno_rankings` SET `puntos`='$jsonGuardar->puntos' WHERE `nick`='$jsonGuardar->cod'";
 
   if ($res = mysqli_query($con, $sentencia)) {
 
@@ -25,9 +25,8 @@ if(!$jsonRanking){
 
     }
     if($datos){
-      header('Content-Type: application/json');
-      json_encode($datos);
-      echo(json_encode($texto));
+      echo('{ "result": "OK" }');
+
 
     }
   } else {
