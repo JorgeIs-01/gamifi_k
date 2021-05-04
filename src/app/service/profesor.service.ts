@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProfesorService {
-  baseUrl = 'http://localhost/';
+  //Cambiar el 8080 si no funciona
+  baseUrl = 'http://localhost:8080/';
   datos: any;
 
   constructor(private http: HttpClient) {}

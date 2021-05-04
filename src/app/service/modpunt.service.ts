@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ModpuntService {
-  baseUrl = 'http://localhost/';
+  //Cambiar el 8080 si no funciona
+  baseUrl = 'http://localhost:8080/';
   cod: any;
 
   constructor(private http: HttpClient) { }

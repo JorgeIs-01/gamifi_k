@@ -44,8 +44,11 @@ export class RankingComponent implements OnInit {
           .borrarRanking(this.ListaRanking[index].Cod)
           .subscribe((datos1: any) => {
             console.log(datos1);
+            //1 Forma de refrescar
+            //window.location.reload();
 
             if (datos1['result'] === 'OK') {
+
               Swal.fire({
                 position: 'top',
                 icon: 'success',
@@ -54,11 +57,15 @@ export class RankingComponent implements OnInit {
                 timer: 1500,
               });
               this.Router.navigate(['/ranking']);
+
+
             } else if (datos1['result'] === 'ERROR1') {
+
               Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'El Ranking no se ha podido eliminar',
+
               });
             }
           });
@@ -138,6 +145,11 @@ export class RankingComponent implements OnInit {
         }
       });
   }
+
+  refresh(): void {
+    window.location.reload(); }
+
+
 
   onFormSubmit() {}
 }
