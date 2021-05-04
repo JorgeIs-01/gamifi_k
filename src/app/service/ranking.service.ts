@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RankingService {
- //Cambiar el 8080 si no funciona
-  baseUrl = 'http://localhost:8080/';
+  // baseUrl = 'http://localhost:8080/';
+  baseUrl = 'http://localhost/';
+
   ranking: any;
   codigo;
   datos1: any;
