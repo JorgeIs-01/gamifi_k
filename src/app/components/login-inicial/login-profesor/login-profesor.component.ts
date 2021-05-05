@@ -70,6 +70,13 @@ export class LoginProfesorComponent implements OnInit {
           }
           localStorage.setItem('nombre', JSON.stringify(datos));
           this.profesorService.setDatos(datos);
+          localStorage.setItem('apellido',datos[0]['apellidos']);
+          localStorage.setItem('email',datos[0]['email']);
+          localStorage.setItem('nick',datos[0]['nick']);
+          localStorage.setItem('nombre',datos[0]['nombre']);
+          localStorage.setItem('pwd',datos[0]['pwd']);
+          localStorage.setItem('centro',datos[0]['centro']);
+
 
 
         }

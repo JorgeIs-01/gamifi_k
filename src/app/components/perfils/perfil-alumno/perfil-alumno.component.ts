@@ -23,7 +23,6 @@ export class PerfilAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.perfilAlumno= this.alumnoService.getDatos();
-
     this.apellido= localStorage.getItem('apellido');
     this.email= localStorage.getItem('email');
     this.nick= localStorage.getItem('nick');
