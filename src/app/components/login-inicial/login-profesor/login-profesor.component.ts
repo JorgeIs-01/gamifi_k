@@ -68,7 +68,10 @@ export class LoginProfesorComponent implements OnInit {
               text: 'Intentalo mas tarde!',
             })
           }
+          localStorage.setItem('nombre', JSON.stringify(datos));
           this.profesorService.setDatos(datos);
+
+
         }
       }
 
