@@ -19,7 +19,7 @@ export class RankingComponent implements OnInit {
     private rankingService: RankingService,
     private profesorService: ProfesorService,
     private Router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.rankingService
@@ -148,9 +148,10 @@ export class RankingComponent implements OnInit {
   }
 
   refresh(): void {
-    window.location.reload(); }
+    window.location.reload();
+  }
 
 
 
-  onFormSubmit() {}
+  onFormSubmit() { }
 }
