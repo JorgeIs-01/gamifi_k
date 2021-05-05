@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AlumnoService {
-  baseUrl = 'http://localhost/';
-  // baseUrl = 'http://localhost:8080/';
+  //baseUrl = 'http://localhost/';
+   baseUrl = 'http://localhost:8080/';
 
   datos: any;
 
@@ -42,6 +42,8 @@ export class AlumnoService {
   }
 
   getDatos() {
+    console.log(this.datos);
+
     return this.datos;
   }
 

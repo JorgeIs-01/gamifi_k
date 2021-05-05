@@ -43,6 +43,8 @@ export class LoginAlumnoComponent implements OnInit {
     this.alumnoService.loginAlumno(this.registerForm.value).subscribe(
       (datos: Alumno) => {
 
+
+
         if (datos["result"] === "ERROR") {
           Swal.fire({
             icon: 'error',
@@ -70,6 +72,11 @@ export class LoginAlumnoComponent implements OnInit {
             })
           }
           this.alumnoService.setDatos(datos);
+          localStorage.setItem('apellido',datos[0]['apellidos']);
+          localStorage.setItem('email',datos[0]['email']);
+          localStorage.setItem('nick',datos[0]['nick']);
+          localStorage.setItem('nombre',datos[0]['nombre']);
+          localStorage.setItem('pwd',datos[0]['pwd']);
         }
 
       }
