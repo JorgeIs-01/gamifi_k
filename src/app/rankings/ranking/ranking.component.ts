@@ -134,6 +134,7 @@ export class RankingComponent implements OnInit {
             text: 'El Ranking esta vacio',
           });
         } else {
+
           this.Router.navigate(['/editar-ranking']);
         }
       });
