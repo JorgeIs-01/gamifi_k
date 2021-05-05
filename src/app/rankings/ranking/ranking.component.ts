@@ -15,6 +15,7 @@ export class RankingComponent implements OnInit {
   ListaRanking;
   PerfilRanking: Ranking;
   rankingModel = new Ranking('', '', '');
+  nick: String;
   constructor(
     private rankingService: RankingService,
     private profesorService: ProfesorService,
@@ -22,8 +23,9 @@ export class RankingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.nick= localStorage.getItem('nick');
     this.rankingService
-      .ListRanking(this.profesorService['datos'][0].nick)
+      .ListRanking(this.nick)
       .subscribe((datos: Ranking[]) => {
         this.ListaRanking = datos;
         console.log(this.ListaRanking);
@@ -45,7 +47,7 @@ export class RankingComponent implements OnInit {
           .subscribe((datos1: any) => {
             console.log(datos1);
             //1 Forma de refrescar
-            //window.location.reload();
+            window.location.reload();
 
             if (datos1['result'] === 'OK') {
 
@@ -106,6 +108,8 @@ export class RankingComponent implements OnInit {
           .modrank(this.ListaRanking[index].Cod)
           .subscribe((datos1: any) => {
             console.log(datos1);
+            //1 Forma de refrescar
+            window.location.reload();
 
             if (datos1['result'] === 'OK') {
               Swal.fire({
@@ -116,6 +120,7 @@ export class RankingComponent implements OnInit {
                 timer: 1500,
               });
               this.Router.navigate(['/ranking']);
+
             } else if (datos1['result'] === 'ERROR1') {
               Swal.fire({
                 icon: 'error',

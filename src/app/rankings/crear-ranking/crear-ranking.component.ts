@@ -20,6 +20,7 @@ export class CrearRankingComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   awd : Profesor;
+  nick: String;
   //si pones el perfilprofesor en public no muestra error
   constructor(public perfilProfesor: ProfesorService,
     private RankingService: RankingService,
@@ -32,11 +33,19 @@ export class CrearRankingComponent implements OnInit {
 
   ngOnInit(): void {
     this.perfilProfesor= this.perfilProfesor.getDatos();
+    this.nick= localStorage.getItem('nick');
     this.registerForm = this.formBuilder.group({
       nomRanking: ['', Validators.required],
-      nomProfesor: [this.perfilProfesor[0].nick, Validators.required],
+      nomProfesor: [this.nick, Validators.required],
+
+
+
+
   });
+  console.log(this.perfilProfesor);
+  console.log(this.registerForm);
 }
+
 
 get f() { return this.registerForm.controls; }
 
