@@ -2,61 +2,15 @@
 <a routerLink="/ranking" routerLinkActive="active" class="profile-edit-btn">Volver</a>
 <br>
 <br>
+
 <body>
   <div class="container-xl">
     <div>
-      <select class="form-control form-control-sm">
-        <option>BONUS1</option>
-        <option>BONUS2</option>
-        <option>BONUS3</option>
-        <option>BONUS4</option>
-        <option>BONUS5</option>
-        <option>BONUS6</option>
-        <option>BONUS7</option>
-        <option>BONUS8</option>
-        <option>BONUS9</option>
-        <option>BONUS10</option>
-        <option>BONUS11</option>
-        <option>BONUS12</option>
-        <option>BONUS13</option>
-        <option>BONUS14</option>
-        <option>BONUS15</option>
-        <option>BONUS16</option>
-        <option>BONUS17</option>
-        <option>BONUS18</option>
-        <option>BONUS19</option>
-        <option>BONUS20</option>
-        <option>BONUS21</option>
-        <option>BONUS22</option>
-        <option>BONUS23</option>
-        <option>BONUS24</option>
-        <option>BONUS25</option>
-        <option>BONUS26</option>
-        <option>BONUS27</option>
-        <option>BONUS27</option>
-        <option>BONUS28</option>
-        <option>BONUS29</option>
-        <option>BONUS30</option>
-        <option>BONUS31</option>
-        <option>BONUS32</option>
-        <option>BONUS33</option>
-        <option>BONUS34</option>
-        <option>BONUS35</option>
-        <option>BONUS36</option>
-        <option>BONUS37</option>
-        <option>BONUS38</option>
-        <option>BONUS39</option>
-        <option>BONUS40</option>
-        <option>BONUS41</option>
-        <option>BONUS42</option>
-        <option>BONUS43</option>
-        <option>BONUS44</option>
-        <option>BONUS45</option>
-        <option>BONUS46</option>
-        <option>BONUS47</option>
-        <option>BONUS48</option>
-        <option>BONUS49</option>
-        <option>BONUS50</option>
+      <select [(ngModel)]="opcionSeleccionado" class="form-control form-control-sm" (change)="capturar()">
+        <option value="0">Selecciona un BONUS</option>
+        <option *ngFor="let bono of bonus;">
+          {{bono}}
+        </option>
       </select>
     </div>
     <div class="table-responsive">

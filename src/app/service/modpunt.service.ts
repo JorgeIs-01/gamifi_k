@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ModpuntService {
-   baseUrl = 'http://localhost:8080/';
-  //baseUrl = 'http://localhost/';
+   //baseUrl = 'http://localhost:8080/';
+  baseUrl = 'http://localhost/';
 
   cod: any;
 
