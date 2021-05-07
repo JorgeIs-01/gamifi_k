@@ -15,15 +15,10 @@ if(!$jsonGuardar){
 
 }
 
-  $sentencia ="UPDATE `alumno_rankings` SET `puntos`='$jsonGuardar->puntos' WHERE `nick`='$jsonGuardar->cod'";
+  $sentencia ="UPDATE `alumno_rankings` SET `$jsonGuardar->bonus`='$jsonGuardar->puntos' WHERE `nick`='$jsonGuardar->cod'";
 
   if ($res = mysqli_query($con, $sentencia)) {
 
-      while ($fila = $result2->fetch_assoc()) {
-        $datos [] =$fila;
-
-
-    }
     if($datos){
       echo('{ "result": "OK" }');
 
