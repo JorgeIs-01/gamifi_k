@@ -13,7 +13,7 @@ import { guardarpuntos } from '../../../app/models/guardarpuntos';
   styleUrls: ['./editar-ranking.component.css'],
 })
 export class EditarRankingComponent implements OnInit {
-  ListaRanking;
+
   PerfilRanking: Ranking;
   Ranking: any;
   registerForm: FormGroup;
@@ -22,6 +22,7 @@ export class EditarRankingComponent implements OnInit {
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = '';
   nick: string;
+  datos="BONUS1";
 
   constructor(
     private Router: Router,
@@ -36,6 +37,7 @@ export class EditarRankingComponent implements OnInit {
   ngOnInit(): void {
     this.Ranking = this.rankingService.getCodigo();
 
+
   }
 
   capturar(){
@@ -43,10 +45,14 @@ export class EditarRankingComponent implements OnInit {
     this.awd.bonus=this.verSeleccion;
     this.awd.cod= localStorage.getItem('Cod');
 
+
     this.rankingService
     .ListarRankingBonus(this.awd)
     .subscribe((datos: any) => {
-      this.rankingService.ListarRankingBonus(datos);
+      console.log(datos);
+      this.Ranking=datos
+
+
     })
 
 

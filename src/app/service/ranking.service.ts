@@ -55,12 +55,16 @@ export class RankingService {
 
 
  ListarRankingBonus(datos1) {
-   console.log(datos1);
+console.log(datos1);
+
+
 
   return this.http.post(
     `${this.baseUrl}ListarUnRankingBonus.php`,
     JSON.stringify(datos1)
   );
+
+
 }
 
  editarRanking(datos1) {
