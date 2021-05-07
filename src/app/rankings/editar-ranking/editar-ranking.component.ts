@@ -35,18 +35,18 @@ export class EditarRankingComponent implements OnInit {
 
   ngOnInit(): void {
     this.Ranking = this.rankingService.getCodigo();
+
   }
 
   capturar(){
     this.verSeleccion = this.opcionSeleccionado;
     this.awd.bonus=this.verSeleccion;
-    this.awd.cod = this.nick;
-    console.log(this.awd);
+    this.awd.cod= localStorage.getItem('Cod');
 
-    this.ModpuntService
-    .guardarpunt(this.awd)
+    this.rankingService
+    .ListarRankingBonus(this.awd)
     .subscribe((datos: any) => {
-      this.rankingService.enviarCodigo(datos);
+      this.rankingService.ListarRankingBonus(datos);
     })
 
 

@@ -23,6 +23,7 @@ export class RankingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.nick= localStorage.getItem('nick');
     this.rankingService
       .ListRanking(this.nick)
@@ -146,9 +147,12 @@ export class RankingComponent implements OnInit {
             text: 'El Ranking esta vacio',
           });
         } else {
-
           this.Router.navigate(['/editar-ranking']);
         }
+        this.rankingService.setDatos(datos2);
+        localStorage.setItem('Cod',this.ListaRanking[index].Cod);
+
+
       });
   }
 
