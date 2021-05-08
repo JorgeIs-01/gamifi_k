@@ -19,7 +19,7 @@ if(!$jsonGuardar){
 
   if ($res = mysqli_query($con, $sentencia)) {
 
-    if($datos){
+    if($res){
       echo('{ "result": "OK" }');
 
 

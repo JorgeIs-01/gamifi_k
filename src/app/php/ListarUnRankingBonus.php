@@ -9,7 +9,7 @@ $texto = file_get_contents("php://input");
 $jsonRanking = json_decode($texto);
 
 
-$instruccion1 ="SELECT count(*) AS cuantos FROM alumno_rankings WHERE cod='q0CgLO'";
+$instruccion1 ="SELECT count(*) AS cuantos FROM alumno_rankings WHERE cod='$jsonRanking->cod'";
 $result = mysqli_query($con, $instruccion1);
   while ($fila1 = $result->fetch_assoc()) {
     $numero=$fila1["cuantos"];

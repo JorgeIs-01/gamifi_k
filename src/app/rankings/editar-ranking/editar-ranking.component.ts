@@ -20,9 +20,8 @@ export class EditarRankingComponent implements OnInit {
   submitted = false;
   bonus;
   opcionSeleccionado: string  = '0';
-  verSeleccion: string        = '';
+  verSeleccion: string        = 'BONUS1';
   nick: string;
-  datos="BONUS1";
 
   constructor(
     private Router: Router,
@@ -35,7 +34,17 @@ export class EditarRankingComponent implements OnInit {
   awd = new guardarpuntos("", "");
 
   ngOnInit(): void {
-    this.Ranking = this.rankingService.getCodigo();
+    // this.Ranking = this.rankingService.getCodigo();
+    this.awd.bonus=this.verSeleccion;
+    this.awd.cod= localStorage.getItem('Cod');
+
+
+    this.rankingService
+    .ListarRankingBonus(this.awd)
+    .subscribe((datos: any) => {
+      console.log(datos);
+      this.Ranking=datos
+    })
 
 
   }
@@ -51,13 +60,7 @@ export class EditarRankingComponent implements OnInit {
     .subscribe((datos: any) => {
       console.log(datos);
       this.Ranking=datos
-
-
     })
-
-
-
-
   }
 
   mod(index: number) {
@@ -102,8 +105,7 @@ export class EditarRankingComponent implements OnInit {
                 text: 'El Ranking esta vacio ',
               });
             } else {
-              console.log(datos);
-
+              window.location.reload();
               this.Router.navigate(['/un-ranking-profe']);
             }
           });

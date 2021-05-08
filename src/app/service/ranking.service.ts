@@ -55,9 +55,6 @@ export class RankingService {
 
 
  ListarRankingBonus(datos1) {
-console.log(datos1);
-
-
 
   return this.http.post(
     `${this.baseUrl}ListarUnRankingBonus.php`,
