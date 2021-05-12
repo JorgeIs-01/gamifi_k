@@ -18,10 +18,12 @@ export class EditarRankingComponent implements OnInit {
   Ranking: any;
   registerForm: FormGroup;
   submitted = false;
-  bonus;
+  bonus: string[];
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = 'BONUS1';
   nick: string;
+  awd = new guardarpuntos("", "");
+
 
   constructor(
     private Router: Router,
@@ -31,7 +33,6 @@ export class EditarRankingComponent implements OnInit {
   ) {
     this.bonus=["BONUS1","BONUS2","BONUS3","BONUS4","BONUS5","BONUS6","BONUS7","BONUS8","BONUS9","BONUS10","BONUS11","BONUS12","BONUS13","BONUS14","BONUS15","BONUS16","BONUS17","BONUS18","BONUS19","BONUS20","BONUS21","BONUS22","BONUS23","BONUS24","BONUS25","BONUS26","BONUS27","BONUS28","BONUS29","BONUS30","BONUS31","BONUS32","BONUS33","BONUS34","BONUS35","BONUS36","BONUS37","BONUS38","BONUS39","BONUS40","BONUS41","BONUS42","BONUS43","BONUS44","BONUS45","BONUS46","BONUS47","BONUS48","BONUS49","BONUS50"];
   }
-  awd = new guardarpuntos("", "");
 
   ngOnInit(): void {
     // this.Ranking = this.rankingService.getCodigo();
@@ -58,7 +59,6 @@ export class EditarRankingComponent implements OnInit {
     this.rankingService
     .ListarRankingBonus(this.awd)
     .subscribe((datos: any) => {
-      console.log(datos);
       this.Ranking=datos
     })
   }
