@@ -162,6 +162,14 @@ table.table td a.ver {
   color: #8bf512;
   cursor: pointer;
 }
+table.table td a.moddd {
+  cursor: pointer;
+}
+
+table.table td a.edit {
+  color: #f5e612;
+  cursor: pointer;
+}
 
 table.table td i {
 	font-size: 19px;

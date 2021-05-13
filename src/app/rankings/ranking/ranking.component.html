@@ -1,5 +1,6 @@
 <br>
 <a routerLink="/perfil-profesor" routerLinkActive="active" class="profile-edit-btn">Volver</a>
+<a routerLink="/login" routerLinkActive="active" class="profile-edit-btn">Cerrar sesión</a>
 
 <body>
   <div class="container-xl">
@@ -30,8 +31,8 @@
               <td></td>
               <td>{{ListaRanking['NomRanking']}}</td>
               <td>{{ListaRanking['Cod']}}
-                <a (click)="modcod(i)"><i class="material-icons"
-                  data-toggle="tooltip" title="Modificar Codigo">&#xe863;	</i></a>
+                <a (click)="modcod(i)" class="material-icons moddd"><i
+                  data-toggle="tooltip" title="Modificar Codigo">&#xe863;</i></a>
               </td>
               <td></td>
               <td>
